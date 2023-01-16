@@ -1,0 +1,64 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-rose card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">group</i>
+            </div>
+            <h4 class="card-title">Détails utilisateur</h4>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form" >
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Prénom</mat-label>
+                    <input readonly appUppercase [isTitleCase]="true" matInput type="text" formControlName="prenom">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width" appearance="fill"     >
+                    <mat-label>Nom</mat-label>
+                    <input readonly appUppercase matInput type="text" formControlName="nom">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input readonly matInput type="email" formControlName="email" >
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width" appearance="fill"    >
+                    <mat-label>Téléphone</mat-label>
+                    <input readonly required matInput type="text" prefix="+221 " mask="00 000 00 00" [showMaskTyped]="true" formControlName="telephone" >
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width" appearance="fill"    >
+                    <mat-label>Adresse</mat-label>
+                    <input readonly matInput type="text" formControlName="adresse">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Profil</mat-label>
+                    <input readonly matInput type="text" formControlName="linkedProfil">
+                  </mat-form-field>
+                </div>
+              </div>
+            </form>
+
+            <div class="col-md-12">
+              <button mat-raised-button class="btn btn-danger px-5" (click)="cancel()"> Retour</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

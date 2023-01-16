@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 ml-auto mr-auto mx-auto">
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+      <div class="card card-login">
+        <div class="card-header card-header-rose text-center">
+          <h4 class="card-title">CONNEXION</h4>
+        </div>
+        <div class="card-body ">
+          <p class="card-description text-center">S'authentifier</p>
+          <mat-form-field appearance="outline">
+            <mat-label>Login</mat-label>
+            <input matInput id="inputEmail" formControlName="login" type="email" [ngClass]="{'is-invalid': f?.login?.touched && f?.login?.invalid}">
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error *ngIf="f?.login?.errors && f?.login?.touched">
+              <small *ngIf="f?.login?.hasError('required')">Login <strong>obligatoire!</strong></small>
+              <small *ngIf="!f?.login?.hasError('required')">Login <strong>non conforme!</strong></small>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" [ngStyle]="{'border-radius': 0}">
+            <mat-label>Mot de passe</mat-label>
+            <input matInput id="inputPassword" autocomplete="on" formControlName="password" [type]="hide ? 'password' : 'text'" placeholder="Mot de passe" [ngClass]="{'is-invalid': f?.password?.touched && f?.password?.invalid}">
+            <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'Masquer mot de passe'" [attr.aria-pressed]="hide">
+              {{hide ? 'visibility_off' : 'visibility'}}
+            </mat-icon>
+
+            <mat-error *ngIf="f?.password?.errors && f?.password?.touched">
+              <small *ngIf="f?.password?.hasError('required')">Mot de passe <strong>obligatoire!</strong></small>
+              <small *ngIf="!f?.password?.hasError('required')">Mot de passe <strong>non conforme!</strong></small>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="card-footer justify-content-center">
+          <button class="btn btn-lg btn-block" type="submit">se connecter</button>
+          <br>
+        </div>
+        <p class="text-center" [routerLink]="['/auth/forgot-password']" style="cursor: pointer;"> Mot de passe oublié</p>
+      </div>
+    </form>
+
+  </div>
+</div>

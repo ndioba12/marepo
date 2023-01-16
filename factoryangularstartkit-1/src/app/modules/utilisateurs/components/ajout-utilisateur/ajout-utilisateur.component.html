@@ -1,0 +1,90 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-rose card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">group</i>
+            </div>
+            <h4 class="card-title">Formulaire ajout utilisateur</h4>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form" >
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Prénom</mat-label>
+                    <input
+                      required
+                      [errorStateMatcher]="matcher"
+                      appUppercase [isTitleCase]="true" matInput type="text" formControlName="prenom" placeholder="Entre 2 et 254 caractères">
+
+                    <mat-error *ngIf="f.prenom.touched && f.prenom.hasError('required')">Prénom <strong>obligatoire!</strong></mat-error>
+                    <mat-error *ngIf="f.prenom.touched && !f.prenom.hasError('required')">Prénom <strong>nom conforme!</strong></mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width" appearance="fill"     >
+                    <mat-label>Nom</mat-label>
+                    <input appUppercase matInput type="text" formControlName="nom" placeholder="Entre 2 et 254 caractères">
+
+                    <mat-error *ngIf="f.nom.touched && f.nom.hasError('required')">Nom <strong>obligatoire!</strong></mat-error>
+                    <mat-error *ngIf="f.nom.touched && !f.nom.hasError('required')">Nom <strong>nom conforme!</strong></mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width" appearance="fill" [ngClass]="{'has-success':validEmailLogin===true}">
+                    <mat-label>Email</mat-label>
+                    <input
+                      required
+                      [errorStateMatcher]="matcher"
+                      (ngModelChange)="emailValidationLogin($event)"
+                      matInput type="email" formControlName="email" >
+
+                    <mat-error *ngIf="f.email.touched && f.email.hasError('required')">Email <strong>obligatoire!</strong></mat-error>
+                    <mat-error *ngIf="f.email.touched && !f.email.hasError('required')">Email <strong>nom conforme!</strong></mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width" appearance="fill"    >
+                    <mat-label>Téléphone</mat-label>
+                    <input required matInput type="text" prefix="+221 " mask="00 000 00 00" [showMaskTyped]="true" formControlName="telephone" >
+
+                    <mat-error *ngIf="f.telephone.touched && f.telephone.hasError('required')">Téléphone <strong>obligatoire!</strong></mat-error>
+                    <mat-error *ngIf="f.telephone.touched && !f.telephone.hasError('required')">Téléphone <strong>nom conforme!</strong></mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width" appearance="fill"    >
+                    <mat-label>Adresse</mat-label>
+                    <input matInput type="text" formControlName="adresse"  placeholder="Entre 2 et 254 caractères">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Profil</mat-label>
+                      <mat-select required formControlName="linkedProfil">
+                        <mat-option [value]="">Sélectionner</mat-option>
+                        <mat-option *ngFor="let p of profils" [value]="p">{{p?.libelle}}</mat-option>
+                      </mat-select>
+
+                    <mat-error *ngIf="f.linkedProfil.touched && f.linkedProfil.hasError('required')">Profil <strong>obligatoire!</strong></mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+            </form>
+
+            <div class="col-md-12">
+              <button mat-raised-button type="submit" class="btn btn-success px-5 mr-2" (click)="saveUtilisateur()">Valider</button>
+              <button mat-raised-button class="btn btn-danger px-5" (click)="cancel()"> Annuler</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

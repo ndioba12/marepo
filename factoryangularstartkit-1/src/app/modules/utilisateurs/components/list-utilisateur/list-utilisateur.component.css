@@ -1,0 +1,19 @@
+
+::ng-deep .mat-sort-header-container {
+  display        : flex;
+  justify-content: center;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #008167 !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: #008167 !important;
+;
+}
+
+
+
