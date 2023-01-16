@@ -1,0 +1,11 @@
+lundi:Deuxieme Partie Demat Fiche de Dotation   et    document d'architecture logicielle et de conception
+Mardi :Document d architecture logicielle et de conception de la plateforme Dématérialisation de la fiche de dotation et du suivi du matériel
+et 
+présentation du starter kit sur spring de gainde 2000 configuration environnement de travail(installations des outils de travail
+Mercredi:recuperations des repositories et corrections des erreurs(demarrage de la starter kit spring boot et angular)
+Mercredi:Conception Modele de Données Demat Dotation materiel
+Jeudi:Configuration de l'env:15h 17h:Presentation Design Demat Dotation
+Vendredi:MAJ document:demarrage starter kit
+Lundi matin rscoop MCD demat
+Mardi presentation starter anguler
+Soir :maj git
