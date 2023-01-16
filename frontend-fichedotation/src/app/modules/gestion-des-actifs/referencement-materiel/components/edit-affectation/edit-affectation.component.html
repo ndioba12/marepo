@@ -1,0 +1,56 @@
+<h5>Modifier l'affectation du matériel</h5>
+<form>
+    <div class="row g-4 mt-2">
+        <div class="col-lg-4">
+            <label class="form-label">Référence fiche</label>
+            <input type="text" class="form-control" value="Lorem ipsum dolor">
+        </div>
+        <div class="col-lg-4">
+            <label class="form-label">Identification du matériel</label>
+            <select class="form-select">
+                <option selected>Sélectionner</option>
+                <option value="1" selected>One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+        <div class="col-lg-4">
+            <label for="typeahead-focus" class="form-label">Destinataire</label>
+            <input id="typeahead-focus" [ngModelOptions]="{standalone: true}" type="text" class="form-control"
+                [(ngModel)]="model" [ngbTypeahead]="search" (focus)="focus$.next($any($event).target.value)"
+                (click)="click$.next($any($event).target.value)" #destinataire="ngbTypeahead"
+                [inputFormatter]="formatter" [resultFormatter]="formatter" value="mat007" />
+        </div>
+        <!-- <div class="col-lg-4">
+                            <label class="form-label">Adresse Mac matériel</label>
+                            <input type="text" class="form-control" value="Lorem ipsum dolor">
+                        </div> -->
+        <div class="col-lg-4">
+            <label class="form-label">Objet dotation</label>
+            <input type="text" class="form-control" value="Lorem ipsum dolor">
+        </div>
+        <div class="col-lg-4">
+            <label class="form-label">Date de dotation</label>
+            <input type="date" class="form-control" value="Lorem ipsum dolor">
+        </div>
+        <div class="col-lg-4">
+            <label class="form-label">Date prévue retour</label>
+            <input type="date" class="form-control" value="Lorem ipsum dolor">
+        </div>
+        <!-- <div class="col-lg-4">
+                            <label class="form-label">Référence interne matériel</label>
+                            <input type="text" class="form-control" value="Lorem ipsum dolor">
+                        </div>
+                        <div class="col-lg-4">
+                            <label class="form-label">Localisation géographique</label>
+                            <input type="text" class="form-control" value="Lorem ipsum dolor">
+                        </div> -->
+
+        <div class="col-lg-12">
+            <div class="d-flex align-items-center">
+                <button class="button-blue me-3">Enregistrer</button>
+                <button class="button-outline-blue">Annuler</button>
+            </div>
+        </div>
+    </div>
+</form>

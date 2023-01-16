@@ -1,0 +1,86 @@
+<nav class="breadcrumb-layout mb-3"
+    style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a routerLink="../../../liste-des-materiels">
+                <i class="fa fa-list me-2"></i>
+                <span>Référencement Matériel</span>
+            </a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page"><i class="fa fa-plus me-2"></i>Réféncement Matériel  N°1 </li>
+    </ol>
+</nav>
+
+
+<div class="shadow-custom p-4 rounded-2">
+    <h5>Détails  du matériel</h5>
+    <div class="row details g-3 mt-2">
+        <div class="col-lg-4">
+            <div class="details-item">
+                <p class="details-item-title">Désignation matériel </p>
+                <p class="details-item-value">Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="details-item">
+                <p class="details-item-title">Type de matériel</p>
+                <p class="details-item-value">Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="details-item">
+                <p class="details-item-title">Appellation commerciale</p>
+                <p class="details-item-value">Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="col-lg-4">
+            <div class="details-item">
+                <p class="details-item-title">Fournisseur</p>
+                <p class="details-item-value">Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="details-item">
+                <p class="details-item-title">Marque</p>
+                <p class="details-item-value">Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+        
+    
+    </div>
+</div>
+<div class="shadow-custom p-4 rounded-2 my-4">
+    <div class="row details g-3">
+        <div class="col-lg-4">
+            <label class="form-label">Référence interne matériel</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-4">
+            <label class="form-label">Numéro de série</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-4">
+            <label class="form-label">Adresse Mac matériel </label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-4">
+            <label class="form-label">Localisation géographique</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-4">
+            <label class="form-label">Type de maintenance</label>
+            <select class="form-select">
+                <option *ngFor="let item of typeMaintenance">{{ item.value | titlecase }}</option>
+            </select>
+        </div>
+        <div class="col-lg-12">
+            <div class="d-flex align-items-center">
+                <button class="button-blue me-3" type="submit">Enregistrer</button>
+                <button class="button-outline-blue" type="reset">Annuler</button>
+            </div>
+        </div>
+
+    </div>
+</div>

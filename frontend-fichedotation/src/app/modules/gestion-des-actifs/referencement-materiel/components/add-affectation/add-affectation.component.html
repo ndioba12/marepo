@@ -1,0 +1,81 @@
+<nav class="breadcrumb-layout mb-3"
+    style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a routerLink="../../../liste-des-materiels">
+                <i class="fa fa-list me-2"></i>
+                <span>Référencement Matériel</span>
+            </a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page"><i class="fa fa-plus me-2"></i>Nouvelle Affectation </li>
+    </ol>
+</nav>
+
+<div class="shadow-custom p-4 rounded-2">
+    <h5>Nouvelle Affectation</h5>
+    <form>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-4">
+                <label class="form-label">Référence fiche</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-lg-4">
+                <label class="form-label">Identification du matériel</label>
+                <select class="form-select">
+                    <option selected>Sélectionner</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+            </div>
+            <div class="col-lg-4">
+                <label for="typeahead-focus" class="form-label">Destinataire</label>
+                <input
+                    id="typeahead-focus"
+                    [ngModelOptions]="{standalone: true}"
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="model"
+                    [ngbTypeahead]="search"
+                    (focus)="focus$.next($any($event).target.value)"
+                    (click)="click$.next($any($event).target.value)"
+                    #destinataire="ngbTypeahead"
+                    [inputFormatter]="formatter"
+                    [resultFormatter]="formatter"
+                />
+            </div>
+            <!-- <div class="col-lg-4">
+                <label class="form-label">Adresse Mac matériel</label>
+                <input type="text" class="form-control">
+            </div> -->
+            <div class="col-lg-4">
+                <label class="form-label">Objet dotation</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-lg-4">
+                <label class="form-label">Date de dotation</label>
+                <input type="date" class="form-control">
+            </div>
+            <div class="col-lg-4">
+                <label class="form-label">Date prévue retour</label>
+                <input type="date" class="form-control">
+            </div>
+            <!-- <div class="col-lg-4">
+                <label class="form-label">Référence interne matériel</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-lg-4">
+                <label class="form-label">Localisation géographique</label>
+                <input type="text" class="form-control">
+            </div> -->
+
+            <div class="col-lg-12">
+                <div class="d-flex align-items-center">
+                    <button class="button-blue me-3" type="submit">Enregistrer</button>
+                    <button class="button-outline-blue" type="reset">Annuler</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

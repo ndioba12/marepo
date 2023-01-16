@@ -1,0 +1,116 @@
+<nav class="breadcrumb-layout mb-3"
+    style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a routerLink="../../../liste-des-materiels">
+                <i class="fa fa-list me-2"></i>
+                <span>Enregistrement Comptable</span>
+            </a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page"><i class="fa fa-edit me-2"></i>Détails N°1 </li>
+    </ol>
+</nav>
+
+<div class="shadow-custom p-4 rounded-2">
+    <h5>Détails du matériel</h5>
+    <div class="row details g-3 mt-2">
+        <div class="col-lg-3">
+            <div class="details-item">
+                <p class="details-item-title">Désignation du materiel</p>
+                <p class="details-item-value">Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="details-item">
+                <p class="details-item-title">Type de matériel</p>
+                <p class="details-item-value">Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="details-item">
+                <p class="details-item-title">Appellation commerciale</p>
+                <p class="details-item-value">Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="details-item">
+                <p class="details-item-title">Fournisseur</p>
+                <p class="details-item-value">Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="shadow-custom p-4 rounded-2 my-4">
+    <div class="row g-3 mb-3">
+        <div class="col-lg-4">
+            <label class="form-label">Prix d'achat</label>
+            <input type="text" class="form-control"  value="200 000 Fcfa">
+        </div>
+
+        <div class="col-lg-4">
+            <label class="form-label">Date d'achat</label>
+            <input type="date" class="form-control" value="2022-12-30">
+        </div>
+
+        <div class="col-lg-4">
+            <label class="form-label">Durée de vie fiscale</label>
+            <input type="text" class="form-control" value="2 ans">
+        </div>
+    </div>
+
+    <h5>Tableau d'amortissement</h5>
+
+    <table class="table shadow-sm">
+        <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Valeur</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dynamic of dynamicArray; let i = index;">
+                <td [width]="'45%'">
+                    <ng-container *ngIf="dynamic.isEdit">
+                        <input class="form-control form-control-sm" placeholder="Date"  name="{{dynamic.date}}" [(ngModel)]="dynamic.date"  type="date" />
+                    </ng-container>
+                    <ng-container *ngIf="!dynamic.isEdit">
+                       {{ dynamic.date }}
+                    </ng-container>
+                </td>
+                <td [width]="'45%'">
+                    <ng-container *ngIf="dynamic.isEdit">
+                        <input class="form-control form-control-sm" placeholder="Valeur"  name="{{dynamic.valeur}}" [(ngModel)]="dynamic.valeur"  type="text" />
+                    </ng-container>
+                    <ng-container *ngIf="!dynamic.isEdit">
+                       {{ dynamic.valeur }}
+                    </ng-container>
+                    
+                </td>
+                <td [width]="'10%'">
+                    <div *ngIf="dynamic.isEdit">
+                        <span class="fa fa-save text-success me-2" (click)="dynamic.isEdit = false"></span>
+                        <span style="cursor: pointer;" class="fa fa-times text-danger" (click)="dynamic.isEdit = false"></span>
+                    </div>
+                    <div *ngIf="!dynamic.isEdit">
+                        <span class="fa fa-edit tx-blue me-2" (click)="onEdit(dynamic)"></span>
+                        <span style="cursor: pointer;" class="fa fa-trash text-danger" (click)="deleteRow(i)"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><button class="btn btn-light w-100" (click)="addNewAmortissement()"><i class="fa-solid fa-plus me-2"></i>Ajouter</button></td>
+              </tr>
+        </tbody>
+    </table>
+
+    <div class="col-lg-12 mt-4">
+        <div class="d-flex align-items-center">
+            <button class="button-blue me-3" type="submit">Enregistrer</button>
+            <button class="button-outline-blue" type="reset">Annuler</button>
+        </div>
+    </div>
+</div>

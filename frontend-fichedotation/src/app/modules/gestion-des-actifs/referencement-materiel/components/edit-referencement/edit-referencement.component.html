@@ -1,0 +1,32 @@
+<h5>Modifier le référencement du matériel</h5>
+<div class="row details g-3">
+    <div class="col-lg-4">
+        <label class="form-label">Référence interne matériel</label>
+        <input type="text" class="form-control" value="Lorem ipsum dolor">
+    </div>
+    <div class="col-lg-4">
+        <label class="form-label">Numéro de série</label>
+        <input type="text" class="form-control" value="Lorem ipsum dolor">
+    </div>
+    <div class="col-lg-4">
+        <label class="form-label">Adresse Mac matériel </label>
+        <input type="text" class="form-control" value="Lorem ipsum dolor">
+    </div>
+    <div class="col-lg-4">
+        <label class="form-label">Localisation géographique</label>
+        <input type="text" class="form-control" value="Lorem ipsum dolor">
+    </div>
+    <div class="col-lg-4">
+        <label class="form-label">Type de maintenance</label>
+        <select class="form-select">
+            <option *ngFor="let item of typeMaintenance">{{ item.value | titlecase }}</option>
+        </select>
+    </div>
+    <div class="col-lg-12">
+        <div class="d-flex align-items-center">
+            <button class="button-blue me-3" type="submit">Modifier</button>
+            <button class="button-outline-blue" type="reset">Annuler</button>
+        </div>
+    </div>
+
+</div>
