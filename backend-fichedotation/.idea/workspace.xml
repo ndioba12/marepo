@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e29c2a12-7510-4ef9-8d08-2619b403615a" name="Changes" comment="Initial">
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/CatImmobilisation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/CessionImmobilisation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Fournisseur.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/HistoriqueLocalisation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Immobilisation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Statut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/TypeCession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/TypeImmobilisation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/TypeMaintenance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/repositories/TypeCessionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/interfaces/achats/IGestionAchat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/controllers/achats/AchatController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/mappers/DonneesReferenceDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/mappers/DonneesReferenceMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/FournisseurDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/ImmobilisationDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/MarqueDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/StatutDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/TypeCessionDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/TypeImmobilisationDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/TypeMaintenanceDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Marque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Marque.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Utilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Utilisateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/shared/DonneeReferencesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/shared/DonneeReferencesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/shared/NotificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/shared/NotificationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/interfaces/shared/IDonneeReferences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/interfaces/shared/IDonneeReferences.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/controllers/shared/DonneeReferencesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/controllers/shared/DonneeReferencesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sn/gainde2000/fichedotation/entities/Marque.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sn/gainde2000/fichedotation/entities/Marque.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sn/gainde2000/fichedotation/entities/QUtilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sn/gainde2000/fichedotation/entities/QUtilisateur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sn/gainde2000/fichedotation/entities/Utilisateur$UtilisateurBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sn/gainde2000/fichedotation/entities/Utilisateur.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sn/gainde2000/fichedotation/services/implementations/shared/DonneeReferencesImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sn/gainde2000/fichedotation/services/implementations/shared/NotificationServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sn/gainde2000/fichedotation/services/implementations/shared/NotificationServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sn/gainde2000/fichedotation/services/interfaces/shared/IDonneeReferences.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sn/gainde2000/fichedotation/services/interfaces/shared/IDonneeReferences.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sn/gainde2000/fichedotation/web/controllers/shared/DonneeReferencesController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sn/gainde2000/fichedotation/web/dtos/mappers/MenuMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sn/gainde2000/fichedotation/web/dtos/mappers/MenuMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sn/gainde2000/fichedotation/web/dtos/mappers/MenuMapperImpl_.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sn/gainde2000/fichedotation/web/dtos/mappers/MenuMapperImpl_.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sn/gainde2000/fichedotation/web/dtos/mappers/UtilisateurMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sn/gainde2000/fichedotation/web/dtos/mappers/UtilisateurMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/sn/gainde2000/fichedotation/web/dtos/mappers/UtilisateurMapperImpl_.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/sn/gainde2000/fichedotation/web/dtos/mappers/UtilisateurMapperImpl_.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/java/sn/gainde2000/fichedotation/entities/QMarque.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/java/sn/gainde2000/fichedotation/entities/QMarque.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/java/sn/gainde2000/fichedotation/entities/QUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/java/sn/gainde2000/fichedotation/entities/QUtilisateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="module-info" />
+        <option value="AnnotationType" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectId" id="2JoSv9LOB2mP8GaiLjW6G4ZsDmu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/projects/backend-fichedotation&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.haulmont.jpb.viewMode&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;e45af62c65454ae4c2a4ef33b309175e&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\projects\DematDotationBackend\backend-fichedotation\src\main\java\sn\gainde2000\fichedotation\entities" />
+      <recent name="C:\projects\DematDotationBackend\backend-fichedotation" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="sn.gainde2000.fichedotation.web.dtos.others" />
+      <recent name="sn.gainde2000.fichedotation.services.interfaces.achats" />
+      <recent name="sn.gainde2000.fichedotation.web.controllers.achats" />
+      <recent name="sn.gainde2000.fichedotation.web.dtos.mappers" />
+      <recent name="sn.gainde2000.fichedotation.repositories" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.FicheDotationBackApplication">
+    <configuration name="schema.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/src/main/resources/db/migration/schema/schema.sql" />
+      <script-mode>FILE</script-mode>
+      <method v="2" />
+    </configuration>
+    <configuration name="FicheDotationBackApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="backend-fichedotation" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="sn.gainde2000.fichedotation.FicheDotationBackApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Database Script.schema.sql" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e29c2a12-7510-4ef9-8d08-2619b403615a" name="Changes" comment="" />
+      <created>1672743176408</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1672743176408</updated>
+      <workItem from="1672743179676" duration="164000" />
+      <workItem from="1672743371525" duration="1406000" />
+      <workItem from="1672744952371" duration="649000" />
+      <workItem from="1672929851841" duration="1391000" />
+      <workItem from="1672999831348" duration="1343000" />
+      <workItem from="1673002189023" duration="153000" />
+      <workItem from="1673002475459" duration="484000" />
+      <workItem from="1673003597718" duration="2604000" />
+      <workItem from="1673259878489" duration="1470000" />
+      <workItem from="1673264920306" duration="9157000" />
+      <workItem from="1673342999028" duration="38000" />
+      <workItem from="1673343149001" duration="8369000" />
+      <workItem from="1673363321019" duration="835000" />
+      <workItem from="1673364418231" duration="342000" />
+      <workItem from="1673364806798" duration="695000" />
+      <workItem from="1673365963636" duration="500000" />
+      <workItem from="1673429763304" duration="7977000" />
+      <workItem from="1673516581581" duration="5357000" />
+      <workItem from="1673604654962" duration="1210000" />
+      <workItem from="1673821364465" duration="1236000" />
+      <workItem from="1673861425309" duration="19574000" />
+      <workItem from="1673947528422" duration="23072000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initial">
+      <created>1673364893791</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1673364893791</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/controllers/administration/authentification/AuthentificationController.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/administration/authentification/AuthentificationImpl.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Menu.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/controllers/administration/authentification/AuthentificationController.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/backend_fichedotation$FicheDotationBackApplication.ic" NAME="FicheDotationBackApplication Coverage Results" MODIFIED="1673957751460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>

@@ -68,15 +68,9 @@ public class Utilisateur extends Auditable<Integer> implements Serializable {
     @Column(name = "Uti_adresse")
     private String adresse;
 
-  /*  @ManyToOne(fetch = FetchType.EAGER)
+   @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Uti_Pro_id")
-    private Profil linkedProfil;*/
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "Tr_Utilisateur_Profil",
-            joinColumns = @JoinColumn(name = "Uti_id"),
-            inverseJoinColumns = @JoinColumn(name = "Pro_id"))
-    private Set<Profil> profils = new HashSet<>();
+    private Profil linkedProfil;
 
     @Override
     public boolean equals(Object o) {

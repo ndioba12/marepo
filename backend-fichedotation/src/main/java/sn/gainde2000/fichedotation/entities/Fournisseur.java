@@ -31,6 +31,9 @@ public class Fournisseur implements Serializable {
     @Column(name = "Fou_telephoneFixe")
     private String telephoneFixe;
     @Size(max = 50)
+    @Column(name = "Fou_telephoneMobile")
+    private String telephoneMobile;
+    @Size(max = 50)
     @Column(name = "Fou_email")
     private String email;
 

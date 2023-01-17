@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
@@ -14,7 +15,7 @@ import java.util.Objects;
 @Builder
 @Entity
 @Table(name = "TD_HistoriqueLocalisation")
-public class HistoriqueLocalisation {
+public class HistoriqueLocalisation implements Serializable {
     private static final long serialVersionUID = 3606820922208657248L;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -26,7 +27,7 @@ public class HistoriqueLocalisation {
     @Column(name = "HiL_dateAffectation")
     private Date dateAffectation;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "Ces_TyC_id")
+    @JoinColumn(name = "HiL_Imm_id")
     private Immobilisation immobilisation;
     @Override
     public boolean equals(Object o) {

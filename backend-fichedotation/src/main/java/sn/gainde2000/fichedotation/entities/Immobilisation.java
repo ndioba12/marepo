@@ -66,7 +66,7 @@ public class Immobilisation implements Serializable {
     private Integer dureeGarantie;
 
     @Column(name = "Imm_valeurNette")
-    private double valeurNette;
+    private Double valeurNette;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Imm_TyI_id")
     private TypeImmobilisation typeImmobilisation;

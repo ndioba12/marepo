@@ -36,10 +36,6 @@ public class Marque implements Serializable {
     @Column(name = "Mar_libelle")
     private String libelle;
 
-    public Marque(Integer id) {
-        this.id = id;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
