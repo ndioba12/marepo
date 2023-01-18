@@ -1,0 +1,36 @@
+{
+  "designation": "table",
+  "description": "support pour les machines",
+  "modele": "M1",
+  "numeroSerie": "0123",
+  "accessoires": "neant",
+  "refCommercial": "refcom1",
+  "dateAcquisition": "2022-12-30",
+  "dateMiseEnService": "2023-01-18",
+  "prixAcquisition": 1000,
+  "referenceInterne": "refinterne1",
+  "adresseMac": "MAC1",
+  "dureeGarantie": 10,
+  "valeurNette": 900,
+  "typeImmobilisation": {
+    "id":1
+  },
+  "statut": {
+    "id":1
+  },
+  "marque": {
+    "id":1
+  },
+  "typeMaintenance": {
+    "id": 1
+  },
+  "fournisseur": {
+    "id": 1
+  }
+}
+
+
+{
+  "login": "ndiane@yopmail.com",
+  "password": "P@sser123"
+}
