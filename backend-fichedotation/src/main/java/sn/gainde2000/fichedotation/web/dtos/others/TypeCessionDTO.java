@@ -20,10 +20,8 @@ import java.io.Serializable;
 public class TypeCessionDTO implements Serializable {
     private static final long serialVersionUID = -1655762844468520303L;
 
-    private Integer id;
+    //private Integer id;
     private String code;
     private String libelle;
-      public TypeCessionDTO(Integer id) {
-        this.id = id;
-    }
+
 }

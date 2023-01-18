@@ -9,12 +9,11 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import sn.gainde2000.fichedotation.entities.TypeCession;
-import sn.gainde2000.fichedotation.entities.Utilisateur;
 import sn.gainde2000.fichedotation.repositories.MarqueRepository;
 import sn.gainde2000.fichedotation.repositories.ProfilRepository;
 import sn.gainde2000.fichedotation.repositories.TypeCessionRepository;
 import sn.gainde2000.fichedotation.services.interfaces.shared.IDonneeReferences;
-import sn.gainde2000.fichedotation.web.dtos.mappers.DonneesReferenceMapper;
+import sn.gainde2000.fichedotation.web.dtos.mappers.OthersMapper;
 import sn.gainde2000.fichedotation.web.dtos.mappers.UtilisateurMapper;
 import sn.gainde2000.fichedotation.web.dtos.messages.responses.Response;
 import sn.gainde2000.fichedotation.web.dtos.others.TypeCessionDTO;
@@ -28,7 +27,7 @@ public class DonneeReferencesImpl implements IDonneeReferences {
     private final MarqueRepository marqueRepository;
     private final TypeCessionRepository typeCessionRepository;
     private final UtilisateurMapper utilisateurMapper;
-    private final DonneesReferenceMapper donneesReferenceMapper;
+    private final OthersMapper othersMapper;
 
     @Override
     public Response<Object> listProfil() {
@@ -46,16 +45,18 @@ public class DonneeReferencesImpl implements IDonneeReferences {
 
     @Transactional
     @Override
-    public Response<Object> saveTypeCession(TypeCessionDTO model) {
+    public Response<Object> addTypeCession(TypeCessionDTO model) {
         Optional<TypeCession> optionalTypeCession = typeCessionRepository.findByCode(model.getLibelle());
 
         if (optionalTypeCession.isPresent()) return Response.exception().setMessage("Ce type de cession saisi est dèjà utilisé !");
-        TypeCession typeCession = donneesReferenceMapper.mapToTypeCession(model);
-        //TypeCession typeCession = new TypeCession();
-        typeCession.setCode(model.getCode());
-        typeCession.setLibelle(model.getLibelle());
+        TypeCession typeCession = othersMapper.mapToTypeCession(model);
+       // TypeCession typeCession = new TypeCession();
+       // typeCession.setCode(model.getCode());
+      //  typeCession.setLibelle(model.getLibelle());
         typeCessionRepository.save(typeCession);
         return Response.ok().setMessage("Type cession ajouté!");
+
+
     }
 }
 

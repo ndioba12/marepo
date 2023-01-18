@@ -46,7 +46,7 @@ public class DonneeReferencesController {
     @Operation(summary = "Endpoint pour ajouter un nouvel type cession")
     @PostMapping("/savetypeCession")
     public Response<Object> saveTypeCession(@Valid @RequestBody TypeCessionDTO model) {
-        return iDonneeReferences.saveTypeCession(model);
+        return iDonneeReferences.addTypeCession(model);
     }
 
 }
