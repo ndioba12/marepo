@@ -41,13 +41,18 @@ public class AjoutAchatDTO implements Serializable {
     @Size(min = 2, max = 255, message = "Le modele  doit être comprise entre 2 et 100!")
     private String modele;
 
-    @NotBlank(message = "Le numero de serie ne doit pas être vide!")
+  /*  @NotBlank(message = "Le numero de serie ne doit pas être vide!")
     @Size(min = 2, max = 100, message = "Le numero de serie  doit être comprise entre 2 et 100!")
-    private String numeroSerie;
+    private String numeroSerie;*/
 
     @NotBlank(message = "Le numero de serie ne doit pas être vide!")
     @Size(min = 2, max = 255, message = "Le champ accessoires   doit être comprise entre 2 et 100!")
     private String accessoires;
+
+    @NotBlank(message = "La localisation doit pas être vide!")
+    @Size(min = 2, max = 255, message = "La localisation doit être comprise entre 2 et 100!")
+    private String localisation;
+
 
     @NotBlank(message = "La reference commerciale ne doit pas être vide!")
     @Size(min = 2, max = 100, message = "La reference commerciale doit être comprise entre 2 et 100!")
@@ -56,32 +61,31 @@ public class AjoutAchatDTO implements Serializable {
     @NotNull
     private Date dateAcquisition;
 
-    @NotNull
-    private Date dateMiseEnService;
-
+   /* @NotNull
+    private Date dateMiseEnService;*/
    @NotNull
     private Double prixAcquisition;
 
-    @NotBlank(message = "La reference interne ne doit pas être vide!")
+   /* @NotBlank(message = "La reference interne ne doit pas être vide!")
     @Size(min = 2, max = 100, message = "La reference interne doit être comprise entre 2 et 100!")
-    private String referenceInterne;
+    private String referenceInterne;*/
 
-    @NotBlank(message = "L'adresse Mac interne ne doit pas être vide!")
+  /*  @NotBlank(message = "L'adresse Mac interne ne doit pas être vide!")
     @Size(min = 2, max = 100, message = "L'adresse Mac  interne doit être comprise entre 2 et 100!")
-    private String adresseMac;
+    private String adresseMac;*/
 
-    @NotNull
-    private Integer dureeGarantie;
-    @NotNull
-    private Double valeurNette;
+   /* @NotNull
+    private Integer dureeGarantie;*/
+  /*  @NotNull
+    private Double valeurNette;*/
     @NotNull(message = "Le typeImmobilisation ne doit pas être null!")
     private TypeImmobilisationDTO typeImmobilisation;
 
-    private Statut statut;
+    //private Statut statut;
     @NotNull(message = "La marque ne doit pas être null!")
     private Marque marque;
-    @NotNull(message = "Le Type maintenanceDTO ne doit pas être null!")
-    private TypeMaintenance typeMaintenance;
+   /* @NotNull(message = "Le Type maintenanceDTO ne doit pas être null!")
+    private TypeMaintenance typeMaintenance;*/
 
     @NotNull(message = "Le fournisseur ne doit pas être null!")
     private Fournisseur fournisseur;

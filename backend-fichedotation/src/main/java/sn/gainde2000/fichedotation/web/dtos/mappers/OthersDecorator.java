@@ -2,10 +2,12 @@ package sn.gainde2000.fichedotation.web.dtos.mappers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import sn.gainde2000.fichedotation.entities.HistoriqueLocalisation;
 import sn.gainde2000.fichedotation.entities.Immobilisation;
 import sn.gainde2000.fichedotation.entities.TypeCession;
 import sn.gainde2000.fichedotation.entities.TypeImmobilisation;
 import sn.gainde2000.fichedotation.web.dtos.others.AjoutAchatDTO;
+import sn.gainde2000.fichedotation.web.dtos.others.HistoriqueLocalisationDTO;
 import sn.gainde2000.fichedotation.web.dtos.others.TypeCessionDTO;
 import sn.gainde2000.fichedotation.web.dtos.others.TypeImmobilisationDTO;
 
@@ -46,6 +48,15 @@ public abstract class OthersDecorator implements OthersMapper {
     @Override
     public Immobilisation mapToImmobilisation(AjoutAchatDTO typeImmobilisationDTO) {
         return  othersMapper.mapToImmobilisation(typeImmobilisationDTO);
+    }
+
+    @Override
+    public HistoriqueLocalisationDTO mapToHistoriqueLocalisationDTO(HistoriqueLocalisation historiqueLocalisation) {
+        return othersMapper.mapToHistoriqueLocalisationDTO(historiqueLocalisation);
+    }
+    @Override
+    public HistoriqueLocalisation mapToHistoriqueLocalisation(HistoriqueLocalisationDTO historiqueLocalisationDTO) {
+        return  othersMapper.mapToHistoriqueLocalisation(historiqueLocalisationDTO);
     }
 
 }

@@ -8,15 +8,19 @@ package sn.gainde2000.fichedotation.services.implementations.achats;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import sn.gainde2000.fichedotation.entities.HistoriqueLocalisation;
 import sn.gainde2000.fichedotation.entities.Immobilisation;
 import sn.gainde2000.fichedotation.exceptions.GenericApiException;
 import sn.gainde2000.fichedotation.repositories.ImmobilisationRepository;
+import sn.gainde2000.fichedotation.repositories.LocalisationRepository;
 import sn.gainde2000.fichedotation.repositories.ProfilRepository;
+import sn.gainde2000.fichedotation.repositories.StatutRepository;
 import sn.gainde2000.fichedotation.services.interfaces.achats.IGestionAchat;
 import sn.gainde2000.fichedotation.web.dtos.mappers.OthersMapper;
 import sn.gainde2000.fichedotation.web.dtos.messages.responses.Response;
 import sn.gainde2000.fichedotation.web.dtos.others.AjoutAchatDTO;
 
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -24,7 +28,9 @@ import java.util.Optional;
 public class GestionAchatImpl implements IGestionAchat {
 
     private final ImmobilisationRepository immobilisationRepository;
-    private final ProfilRepository profilRepository;
+    private final StatutRepository statutRepository;
+   // private final ProfilRepository profilRepository;
+   private final LocalisationRepository localisationRepository;
     private final OthersMapper othersMapper;
 
     @Override
@@ -50,8 +56,14 @@ public class GestionAchatImpl implements IGestionAchat {
                 return Response.exception().setMessage("Cette designation est saisi est dèjà utilisé !");
             //Immobilisation immobilisation = new Immobilisation();
             Immobilisation immobilisation = othersMapper.mapToImmobilisation(model);
-            //typeCession.setCode(model.getCode());
+            immobilisation.setStatut(statutRepository.findStatutByCode("AT"));
             immobilisationRepository.save(immobilisation);
+            HistoriqueLocalisation historiqueLocalisation = new HistoriqueLocalisation();
+           // historiqueLocalisation.setId(immobilisation.getId());
+            historiqueLocalisation.setLocalisation(model.getLocalisation());
+            historiqueLocalisation.setInitiateur("ACHATS");
+            historiqueLocalisation.setImmobilisation(immobilisation);
+            localisationRepository.save(historiqueLocalisation);
             return Response.ok().setMessage("Materiel ajouté!");
 
      /*   }

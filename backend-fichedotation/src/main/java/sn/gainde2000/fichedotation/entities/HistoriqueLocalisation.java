@@ -8,6 +8,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+import static javax.persistence.TemporalType.TIMESTAMP;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -24,7 +26,11 @@ public class HistoriqueLocalisation implements Serializable {
     @Size(max = 10)
     @Column(name = "HiL_localisation")
     private String localisation;
+    @Size(max = 10)
+    @Column(name = "HiL_Initiateur")
+    private String initiateur;
     @Column(name = "HiL_dateAffectation")
+    @Temporal(TIMESTAMP)
     private Date dateAffectation;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "HiL_Imm_id")

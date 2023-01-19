@@ -70,7 +70,7 @@ public class Immobilisation implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Imm_TyI_id")
     private TypeImmobilisation typeImmobilisation;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Imm_Sta_id")
     private Statut statut;
 
