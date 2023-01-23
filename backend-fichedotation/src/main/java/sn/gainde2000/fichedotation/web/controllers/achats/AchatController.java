@@ -6,10 +6,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import sn.gainde2000.fichedotation.services.interfaces.achats.IGestionAchat;
+import sn.gainde2000.fichedotation.web.dtos.messages.requests.UtilisateurDTO;
 import sn.gainde2000.fichedotation.web.dtos.messages.responses.Response;
 import sn.gainde2000.fichedotation.web.dtos.others.AjoutAchatDTO;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @Tag(name = "AchatController", description = "Permet de gérer tous les traitements du profil achat")
 @RestController
@@ -31,4 +33,10 @@ public class AchatController {
         return iGestionAchat.addImmobilisation(model);
     }
 
+    @Operation(summary = "Endpoint pour modifier les informations d'un utilisateur. ['ADM', 'SAD']")
+   // @PreAuthorize("hasAnyAuthority('SAD')")
+    @PutMapping("/editImmobilisation/{id}")
+    public Response<Object> updateImmobilisation(@PathVariable @NotNull Integer id, @RequestBody @Valid AjoutAchatDTO dto) {
+        return iGestionAchat.updateImmobilisation(id, dto);
+    }
 }

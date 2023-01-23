@@ -8,6 +8,6 @@ public interface IGestionAchat {
     public Response<Object> addImmobilisation(AjoutAchatDTO model);
     Response<Object> getImmobilisation(Integer id);
     Response<Object> listImmobilisations();
-    //Response<Object> updateImmobilisation(EditMonCompteDTO dto);
+    Response<Object> updateImmobilisation(Integer id,AjoutAchatDTO dto);
 
 }

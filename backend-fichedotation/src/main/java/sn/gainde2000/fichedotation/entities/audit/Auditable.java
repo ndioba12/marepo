@@ -36,7 +36,7 @@ public abstract class Auditable<T> {
     protected T createdBy;
 
     @CreatedDate
-    @Temporal(TIMESTAMP.DATE)
+    @Temporal(TIMESTAMP)
     @Column(name = "created_date", updatable = false)
     // @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", shape = JsonFormat.Shape.STRING)
     protected Date createdDate;

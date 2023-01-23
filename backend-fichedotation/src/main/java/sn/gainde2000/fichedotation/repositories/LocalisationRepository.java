@@ -15,5 +15,6 @@ import java.util.Optional;
 @Repository
 public interface LocalisationRepository extends JpaRepository<HistoriqueLocalisation, Integer> {
     Optional<HistoriqueLocalisation> findBylocalisation(String localisation);
+    Optional<HistoriqueLocalisation> findBylocalisation(Integer id);
   //  HistoriqueLocalisation findStatutByCode(String code);
 }
