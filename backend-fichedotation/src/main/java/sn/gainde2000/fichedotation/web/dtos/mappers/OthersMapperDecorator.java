@@ -16,7 +16,7 @@ import sn.gainde2000.fichedotation.web.dtos.others.TypeImmobilisationDTO;
  */
 
 @Slf4j
-public abstract class OthersDecorator implements OthersMapper {
+public abstract class OthersMapperDecorator implements OthersMapper {
     private OthersMapper othersMapper;
 
     @Autowired
@@ -46,8 +46,20 @@ public abstract class OthersDecorator implements OthersMapper {
         return othersMapper.mapToImmobilisationDTO(immobilisation);
     }
     @Override
-    public Immobilisation mapToImmobilisation(AjoutAchatDTO typeImmobilisationDTO) {
-        return  othersMapper.mapToImmobilisation(typeImmobilisationDTO);
+    public Immobilisation mapToImmobilisation(AjoutAchatDTO immobilisationDTO) {
+        return  othersMapper.mapToImmobilisation(immobilisationDTO);
+        /*Immobilisation immobilisation = othersMapper.mapToImmobilisation(immobilisationDTO);
+        immobilisation.setDesignation(immobilisationDTO.getDesignation());
+        immobilisation.setDescription(immobilisationDTO.getDescription());
+        immobilisation.setMarque(immobilisationDTO.getMarque());
+        immobilisation.setModele(immobilisationDTO.getModele());
+        immobilisation.setFournisseur(immobilisationDTO.getFournisseur());
+        immobilisation.setReferenceInterne(immobilisationDTO.getRefInterne());
+        immobilisation.setRefCommercial(immobilisationDTO.getRefCommercial());
+        immobilisation.setDureeGarantie(immobilisationDTO.getDureeGarantie());
+        immobilisation.setDateAcquisition(immobilisationDTO.getDateAcquisition());
+        immobilisation.setPrixAcquisition(immobilisationDTO.getPrixAcquisition());
+        immobilisation.setAccessoires(immobilisationDTO.getAccessoires());*/
     }
 
     @Override

@@ -12,6 +12,7 @@ import sn.gainde2000.fichedotation.web.dtos.others.TypeImmobilisationDTO;
 
 public interface IDonneeReferences {
     Response<Object> listProfil();
+    public Response<Object> listStatut();
     Response<Object> listMarque();
     public Response<Object> listypeCession();
     public Response<Object> addTypeCession(TypeCessionDTO model);

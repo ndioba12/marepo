@@ -34,7 +34,7 @@ public class AchatController {
     }
 
     @Operation(summary = "Endpoint pour modifier les informations d'un utilisateur. ['ADM', 'SAD']")
-   // @PreAuthorize("hasAnyAuthority('SAD')")
+   @PreAuthorize("hasAnyAuthority('ACH')")
     @PutMapping("/editImmobilisation/{id}")
     public Response<Object> updateImmobilisation(@PathVariable @NotNull Integer id, @RequestBody @Valid AjoutAchatDTO dto) {
         return iGestionAchat.updateImmobilisation(id, dto);

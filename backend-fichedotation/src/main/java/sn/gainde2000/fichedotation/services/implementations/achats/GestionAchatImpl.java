@@ -60,36 +60,30 @@ public class GestionAchatImpl implements IGestionAchat {
     @Transactional
     @Override
     public Response<Object> addImmobilisation(AjoutAchatDTO model) {
-       /* AuthenticatedUserInfosDTO infosDTO = AuthUtils.getAuthenticatedUser().orElseThrow(() -> new GenericApiException("L'utilisateur ne s'est pas authentifié"));
-        if(infosDTO.getLinkedProfil().getCode().equals(profilRepository.findByCode("").get().getCode()))
-        {*/
+
             Optional<Immobilisation> optionalImmobilisation = immobilisationRepository.findByDesignation(model.getDesignation());
 
             if (optionalImmobilisation.isPresent())
                 return Response.exception().setMessage("Cette designation est saisi est dèjà utilisé !");
-            //Immobilisation immobilisation = new Immobilisation();
+           // Immobilisation immobilisation = new Immobilisation();
             Immobilisation immobilisation = othersMapper.mapToImmobilisation(model);
-            immobilisation.setStatut(statutRepository.findStatutByCode("AT"));
+            immobilisation.setStatut(statutRepository.findByCode("AT").get());
             immobilisationRepository.save(immobilisation);
-            HistoriqueLocalisation historiqueLocalisation = new HistoriqueLocalisation();
-            historiqueLocalisation.setId(immobilisation.getId());
-            historiqueLocalisation.setLocalisation(model.getLocalisation());
-            historiqueLocalisation.setInitiateur("ACHATS");
-            historiqueLocalisation.setImmobilisation(immobilisation);
-            localisationRepository.save(historiqueLocalisation);
             return Response.ok().setMessage("Materiel ajouté!");
     }
 
     @Transactional
     @Override
     public Response<Object> updateImmobilisation(Integer id,AjoutAchatDTO dto) {
+
         Optional<Immobilisation> optionalImmobilisation = immobilisationRepository.findById(id);
+
         if (optionalImmobilisation.isEmpty()) throw new GenericApiException("Immobilisation absent!");
         Immobilisation immobilisation = optionalImmobilisation.get();
         immobilisation.setDesignation(dto.getDesignation());
         immobilisation.setDescription(dto.getDescription());
         immobilisation.setModele(dto.getModele());
-        immobilisation.setStatut(statutRepository.findStatutByCode("AT"));
+        immobilisation.setStatut(statutRepository.findByCode("AT").get());
         immobilisation.setAccessoires(dto.getAccessoires());
         immobilisation.setDateAcquisition(dto.getDateAcquisition());
         immobilisation.setPrixAcquisition(dto.getPrixAcquisition());
@@ -99,13 +93,14 @@ public class GestionAchatImpl implements IGestionAchat {
         TypeImmobilisationDTO typeImmobilisationDTO=dto.getTypeImmobilisation();
         TypeImmobilisation typeImmobilisation = othersMapper.mapToTypeImmobilisation(typeImmobilisationDTO);
         immobilisation.setTypeImmobilisation(typeImmobilisation);
-      Optional<HistoriqueLocalisation> historiqueLocalisationOptional = localisationRepository.findBylocalisation(id);
-        HistoriqueLocalisation historiqueLocalisation = historiqueLocalisationOptional.get();
-     historiqueLocalisation.setLocalisation(dto.getLocalisation());
-       historiqueLocalisation.setImmobilisation(immobilisation);
         immobilisationRepository.save(immobilisation);
-       /localisationRepository.save(historiqueLocalisation);
+        /*Optional<HistoriqueLocalisation> historiqueLocalisationOptional = localisationRepository.findByImmobilisation(id);
+        HistoriqueLocalisation historiqueLocalisation = historiqueLocalisationOptional.get();
+        historiqueLocalisation.setLocalisation(dto.getLocalisation());
+        historiqueLocalisation.setImmobilisation(immobilisation);
+        localisationRepository.save(historiqueLocalisation);*/
         return Response.ok().setMessage("Immobilisation modifié avec succès !");
+        //return Response.ok().setMessage("Utilisateur modifié avec succès !");
     }
 
 }

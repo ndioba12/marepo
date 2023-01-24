@@ -14,5 +14,5 @@ import java.util.Optional;
 @Repository
 public interface StatutRepository extends JpaRepository<Statut, Integer> {
     Optional<Statut> findByCode(String code);
-    Statut findStatutByCode(String code);
+    //Statut findStatutByCode(String code);
 }

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import sn.gainde2000.fichedotation.entities.TypeCession;
 import sn.gainde2000.fichedotation.repositories.MarqueRepository;
 import sn.gainde2000.fichedotation.repositories.ProfilRepository;
+import sn.gainde2000.fichedotation.repositories.StatutRepository;
 import sn.gainde2000.fichedotation.repositories.TypeCessionRepository;
 import sn.gainde2000.fichedotation.services.interfaces.shared.IDonneeReferences;
 import sn.gainde2000.fichedotation.web.dtos.mappers.OthersMapper;
@@ -25,8 +26,9 @@ import java.util.Optional;
 public class DonneeReferencesImpl implements IDonneeReferences {
     private final ProfilRepository profilRepository;
     private final MarqueRepository marqueRepository;
+    private final StatutRepository statutRepository;
     private final TypeCessionRepository typeCessionRepository;
-    private final UtilisateurMapper utilisateurMapper;
+    //private final UtilisateurMapper utilisateurMapper;
     private final OthersMapper othersMapper;
 
     @Override
@@ -41,6 +43,10 @@ public class DonneeReferencesImpl implements IDonneeReferences {
     @Override
     public Response<Object> listypeCession() {
         return Response.ok().setPayload(typeCessionRepository.findAll()).setMessage("Liste des types cessions !");
+    }
+    @Override
+    public Response<Object> listStatut() {
+        return Response.ok().setPayload(statutRepository.findAll()).setMessage("Liste des types statuts !");
     }
 
     @Transactional

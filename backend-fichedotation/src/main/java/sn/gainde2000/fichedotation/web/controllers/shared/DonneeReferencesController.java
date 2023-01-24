@@ -49,4 +49,9 @@ public class DonneeReferencesController {
         return iDonneeReferences.addTypeCession(model);
     }
 
+    @Operation(summary = "Endpoint pour récupérer la liste des statuts")
+    @GetMapping("/statuts")
+    public Response<Object> listStatut() {
+        return iDonneeReferences.listStatut();
+    }
 }

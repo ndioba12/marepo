@@ -10,7 +10,7 @@ import sn.gainde2000.fichedotation.web.dtos.others.*;
  */
 
 @Mapper
-@DecoratedWith(OthersDecorator.class)
+@DecoratedWith(OthersMapperDecorator.class)
 public interface OthersMapper {
 
         TypeCessionDTO mapToTypeCessionDTO(TypeCession typeCession);

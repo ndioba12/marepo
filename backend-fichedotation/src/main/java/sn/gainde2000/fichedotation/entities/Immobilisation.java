@@ -67,6 +67,13 @@ public class Immobilisation implements Serializable {
 
     @Column(name = "Imm_valeurNette")
     private Double valeurNette;
+
+    @Size(max = 255)
+    @Column(name = "Imm_marque")
+    private String marque;
+    @Size(max = 255)
+    @Column(name = "Imm_categorie")
+    private String categorie;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Imm_TyI_id")
     private TypeImmobilisation typeImmobilisation;
@@ -74,15 +81,19 @@ public class Immobilisation implements Serializable {
     @JoinColumn(name = "Imm_Sta_id")
     private Statut statut;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    /*@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Imm_Mar_id")
-    private Marque marque;
+    private Marque marque;*/
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Imm_TyM_id")
     private TypeMaintenance typeMaintenance;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @Size(max = 255)
+    @Column(name = "Imm_fournisseur")
+    private String fournisseur;
+  /*  @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Imm_Fou_id")
-    private Fournisseur fournisseur;
+    private Fournisseur fournisseur;*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

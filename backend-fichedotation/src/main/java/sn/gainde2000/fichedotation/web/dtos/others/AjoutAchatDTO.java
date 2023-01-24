@@ -28,67 +28,43 @@ import java.util.Date;
 public class AjoutAchatDTO implements Serializable {
     private static final long serialVersionUID = -1655762844468520301L;
 
-    //private Integer id;
+    private Integer id;
     @NotBlank(message = "La designation ne doit pas être vide!")
     @Size(min = 2, max = 100, message = "La taille de la designation doit être comprise entre 2 et 100!")
     private String designation;
 
-    @NotBlank(message = "Le description ne doit pas être vide!")
     @Size(min = 2, max = 255, message = "La taille de la description doit être comprise entre 2 et 255!")
     private String description;
 
-    @NotBlank(message = "Le modele ne doit pas être vide!")
     @Size(min = 2, max = 255, message = "Le modele  doit être comprise entre 2 et 100!")
     private String modele;
+    @Size(min = 2, max = 255, message = "La marque  doit être comprise entre 2 et 100!")
+    private String marque;
 
-  /*  @NotBlank(message = "Le numero de serie ne doit pas être vide!")
-    @Size(min = 2, max = 100, message = "Le numero de serie  doit être comprise entre 2 et 100!")
-    private String numeroSerie;*/
-
-    @NotBlank(message = "Le numero de serie ne doit pas être vide!")
+    @Size(min = 2, max = 255, message = "Le champ fournisseur doit être comprise entre 2 et 100!")
+    private String fournisseur;
     @Size(min = 2, max = 255, message = "Le champ accessoires   doit être comprise entre 2 et 100!")
     private String accessoires;
 
-    @NotBlank(message = "La localisation doit pas être vide!")
-    @Size(min = 2, max = 255, message = "La localisation doit être comprise entre 2 et 100!")
-    private String localisation;
 
+    @Size(min = 2, max = 255, message = "Le champ refInterne doit être comprise entre 2 et 100!")
+    private String refInterne;
 
-    @NotBlank(message = "La reference commerciale ne doit pas être vide!")
     @Size(min = 2, max = 100, message = "La reference commerciale doit être comprise entre 2 et 100!")
     private String refCommercial;
-
-    @NotNull
+    @NotNull(message = "La date d'acquisition ne doit pas être vide!")
     private Date dateAcquisition;
 
-   /* @NotNull
-    private Date dateMiseEnService;*/
-   @NotNull
+    @NotNull(message = "Le modele ne doit pas être vide!")
     private Double prixAcquisition;
-
-   /* @NotBlank(message = "La reference interne ne doit pas être vide!")
-    @Size(min = 2, max = 100, message = "La reference interne doit être comprise entre 2 et 100!")
-    private String referenceInterne;*/
-
-  /*  @NotBlank(message = "L'adresse Mac interne ne doit pas être vide!")
-    @Size(min = 2, max = 100, message = "L'adresse Mac  interne doit être comprise entre 2 et 100!")
-    private String adresseMac;*/
-
-   /* @NotNull
-    private Integer dureeGarantie;*/
-  /*  @NotNull
-    private Double valeurNette;*/
-    @NotNull(message = "Le typeImmobilisation ne doit pas être null!")
+    @NotNull(message = "La duree de garantie ne doit pas être vide!")
+    private Integer dureeGarantie;
+    @NotNull(message = "Le type immobilisationduree de garantie ne doit pas être vide!")
     private TypeImmobilisationDTO typeImmobilisation;
 
-    //private Statut statut;
-    @NotNull(message = "La marque ne doit pas être null!")
-    private Marque marque;
-   /* @NotNull(message = "Le Type maintenanceDTO ne doit pas être null!")
-    private TypeMaintenance typeMaintenance;*/
+ //  private Statut statut=new Statut();
 
-    @NotNull(message = "Le fournisseur ne doit pas être null!")
-    private Fournisseur fournisseur;
+
     /*  public AjoutAchatDTO(Integer id) {
         this.id = id;
     }*/

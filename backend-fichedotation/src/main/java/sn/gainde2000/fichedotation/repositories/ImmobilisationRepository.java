@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface ImmobilisationRepository extends JpaRepository <Immobilisation, Integer>  {
     Optional<Immobilisation> findByDesignation(String designation);
-    Optional<Immobilisation> findById(Integer id);
+    //Optional<Immobilisation> findById(Integer id);
 }
