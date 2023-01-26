@@ -23,8 +23,8 @@ public interface OthersMapper {
         AjoutAchatDTO mapToImmobilisationDTO(Immobilisation immobilisation);
 
         Immobilisation mapToImmobilisation(AjoutAchatDTO immobilisationDTO);
+       CatImmobilisationDTO mapToCatImmobilisationDTO(CatImmobilisation catImmobilisation);
 
-        HistoriqueLocalisationDTO mapToHistoriqueLocalisationDTO(HistoriqueLocalisation historiqueLocalisation);
-
-        HistoriqueLocalisation mapToHistoriqueLocalisation(HistoriqueLocalisationDTO historiqueLocalisationDTO);
+        CatImmobilisation mapToCatImmobilisation(CatImmobilisationDTO catImmobilisationDTO);
 }
+

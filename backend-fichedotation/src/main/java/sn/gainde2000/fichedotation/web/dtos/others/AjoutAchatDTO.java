@@ -7,10 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import sn.gainde2000.fichedotation.entities.Fournisseur;
-import sn.gainde2000.fichedotation.entities.Marque;
-import sn.gainde2000.fichedotation.entities.Statut;
-import sn.gainde2000.fichedotation.entities.TypeMaintenance;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -40,15 +36,15 @@ public class AjoutAchatDTO implements Serializable {
     private String modele;
     @Size(min = 2, max = 255, message = "La marque  doit être comprise entre 2 et 100!")
     private String marque;
-
+    @NotBlank(message = "Le fournisseur ne doit pas être vide!")
     @Size(min = 2, max = 255, message = "Le champ fournisseur doit être comprise entre 2 et 100!")
     private String fournisseur;
     @Size(min = 2, max = 255, message = "Le champ accessoires   doit être comprise entre 2 et 100!")
     private String accessoires;
 
 
-    @Size(min = 2, max = 255, message = "Le champ refInterne doit être comprise entre 2 et 100!")
-    private String refInterne;
+    @Size(min = 2, max = 255, message = "Le champ referenceInterne doit être comprise entre 2 et 100!")
+    private String referenceInterne;
 
     @Size(min = 2, max = 100, message = "La reference commerciale doit être comprise entre 2 et 100!")
     private String refCommercial;
@@ -59,8 +55,10 @@ public class AjoutAchatDTO implements Serializable {
     private Double prixAcquisition;
     @NotNull(message = "La duree de garantie ne doit pas être vide!")
     private Integer dureeGarantie;
-    @NotNull(message = "Le type immobilisationduree de garantie ne doit pas être vide!")
+    @NotNull(message = "Le type immobilisation ne doit pas être vide!")
     private TypeImmobilisationDTO typeImmobilisation;
+    @NotNull(message = "La categorie d'immobilisation ne doit pas être vide!")
+    private CatImmobilisationDTO catImmobilisation;
 
  //  private Statut statut=new Statut();
 

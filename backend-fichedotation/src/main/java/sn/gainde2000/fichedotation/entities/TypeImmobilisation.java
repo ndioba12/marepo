@@ -29,9 +29,9 @@ public class TypeImmobilisation implements Serializable {
     @Column(name = "TyI_libelle")
     private String libelle;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+ /*   @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "TyI_Cat_id")
-    private CatImmobilisation catImmobilisation;
+    private CatImmobilisation catImmobilisation;*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

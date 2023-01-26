@@ -7,7 +7,7 @@ spring:
     name: dotation-api-v1
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/BDFicheDotation1
+    url: jdbc:postgresql://localhost:5432/BDFicheDotation
     username: postgres
     password: passer2022
     hikari:

@@ -9,6 +9,7 @@ import sn.gainde2000.fichedotation.services.interfaces.achats.IGestionAchat;
 import sn.gainde2000.fichedotation.web.dtos.messages.requests.UtilisateurDTO;
 import sn.gainde2000.fichedotation.web.dtos.messages.responses.Response;
 import sn.gainde2000.fichedotation.web.dtos.others.AjoutAchatDTO;
+import sn.gainde2000.fichedotation.web.dtos.others.ModificationAchatDTO;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -36,7 +37,22 @@ public class AchatController {
     @Operation(summary = "Endpoint pour modifier les informations d'un utilisateur. ['ADM', 'SAD']")
    @PreAuthorize("hasAnyAuthority('ACH')")
     @PutMapping("/editImmobilisation/{id}")
-    public Response<Object> updateImmobilisation(@PathVariable @NotNull Integer id, @RequestBody @Valid AjoutAchatDTO dto) {
+    public Response<Object> updateImmobilisation(@PathVariable @NotNull Integer id, @RequestBody @Valid ModificationAchatDTO dto) {
         return iGestionAchat.updateImmobilisation(id, dto);
     }
+
+    @Operation(summary = "Endpoint pour supprimer un utilisateur. ['ADM']")
+    @PreAuthorize("hasAnyAuthority('ACH')")
+    @DeleteMapping("/deleteImmobilisation/{id}")
+    public Response<Object> deleteImmobilisation(@PathVariable @NotNull Integer id) {
+        return iGestionAchat.deleteImmobilisation(id);
+    }
+
+    @Operation(summary = "Endpoint pour lister les utilisateurs. ['ADM', 'SUP','SAD']")
+    @PreAuthorize("hasAnyAuthority('ACH')")
+    @GetMapping("/listImmobilisations/{id}")
+    public Response<Object> getImmobilisation(@PathVariable Integer id) {
+        return iGestionAchat.getImmobilisation(id);
+    }
+
 }

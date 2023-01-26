@@ -32,11 +32,7 @@ public class DonneeReferencesController {
         return iDonneeReferences.listProfil();
     }
 
-    @Operation(summary = "Endpoint pour récupérer la liste des marques")
-    @GetMapping("/marques")
-    public Response<Object> listMarque() {
-        return iDonneeReferences.listMarque();
-    }
+
     @Operation(summary = "Endpoint pour récupérer la liste des types cessions")
     @GetMapping("/typeCessions")
     public Response<Object> listypeCession() {

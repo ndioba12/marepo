@@ -32,8 +32,8 @@ public class Statut implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Immobilisation immobilisation = (Immobilisation) o;
-        return getId().equals(immobilisation.getId());
+        Statut statut = (Statut) o;
+        return getId().equals(statut.getId());
     }
 
     @Override
