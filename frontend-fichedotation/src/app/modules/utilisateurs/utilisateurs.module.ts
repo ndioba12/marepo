@@ -7,19 +7,22 @@ import { EditUtilisateurComponent } from './components/edit-utilisateur/edit-uti
 import { ListUtilisateurComponent } from './components/list-utilisateur/list-utilisateur.component';
 import { MonCompteComponent } from './components/mon-compte/mon-compte.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     ListUtilisateurComponent,
     AddUtilisateurComponent,
     EditUtilisateurComponent,
-    MonCompteComponent
+    MonCompteComponent,
+
   ],
   imports: [
     CommonModule,
     SharedModule,
-    UtilisateursRoutingModule
+    UtilisateursRoutingModule,
+    ReactiveFormsModule,
+
   ]
 })
 export class UtilisateursModule { }

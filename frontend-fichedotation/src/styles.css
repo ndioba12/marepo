@@ -7,17 +7,15 @@
     --color-text: #111111;
 }
 
-html,
-body {
-    height: 100%;
-}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .bg-blue {
     background-color: #1C5EAB;
 }
 
 .tx-blue {
-    color: #1C5EAB;
+    color: #1C5EAB !important;
 }
 .tx-yellow{
     color: #FAAD14;
@@ -92,6 +90,7 @@ body {
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
     padding: 6px 12px;
+    color: #2c69b1
 }
 
 .breadcrumb-layout .breadcrumb {
@@ -112,6 +111,7 @@ body {
     display: inline-block;
     position: relative;
 }
+
 .etat-materiel{
     position: relative;
     white-space: nowrap;
@@ -178,6 +178,10 @@ body {
 
 .nav-pills .nav-item {
     border: 1px solid rgba(17, 17, 17, 0.067);
+}
+
+.nav-link{
+  cursor: pointer;
 }
 
 .nav-pills .nav-item .nav-link {
@@ -556,4 +560,22 @@ input::-webkit-inner-spin-button {
 .status-materiel.non-referencier{
     color: rgba(0, 0, 0, 0.6);
     background: #F5F5F5;
+}
+
+
+/* Login constraints*/
+.constraint{
+  color: red;
+  font-size: .7em;
+  font-weight: bold
+}
+
+.input-constraint-border{
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+
+.trash-button{
+  cursor: pointer;
 }

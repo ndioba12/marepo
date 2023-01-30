@@ -53,7 +53,6 @@ export class ListEnregistrementMatComponent implements OnInit {
     })
   }
 
-
   refreshAffectations() {
 		this.affectations = AFFECTATIONS.map((affectation, i) => ({ id: i + 1, ...affectation })).slice(
 			(this.page - 1) * this.pageSize,

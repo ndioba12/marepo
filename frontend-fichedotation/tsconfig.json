@@ -14,8 +14,10 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "noImplicitAny": false,
     "moduleResolution": "node",
     "importHelpers": true,
+    "strictPropertyInitialization": false,     //Ne pas forcer l'initialisation des variables
     "target": "es2020",
     "module": "es2020",
     "lib": [
@@ -28,5 +30,5 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
 }

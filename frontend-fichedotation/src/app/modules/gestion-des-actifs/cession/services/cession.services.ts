@@ -75,7 +75,7 @@ export class cessionServices {
       founisseur : 'libasse' ,
       dateAchat : '30/03/2020',
       prixAchat : '12 200' ,
-      etat : 'reformé' ,
+      etat : 'Reformé' ,
       valeurNette : '12 00'
   },
   {
@@ -85,7 +85,7 @@ export class cessionServices {
       founisseur : 'libasse' ,
       dateAchat : '30/03/2020',
       prixAchat : '12 200' ,
-      etat : 'actif' ,
+      etat : 'Actif' ,
       valeurNette : '12 00'
   },
 

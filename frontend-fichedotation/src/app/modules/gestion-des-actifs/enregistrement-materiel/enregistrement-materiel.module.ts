@@ -8,20 +8,22 @@ import { DetailEnregistrementMatComponent } from './components/detail-enregistre
 import { AddEnregistrementMatComponent } from './components/add-enregistrement-mat/add-enregistrement-mat.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthentificationModule } from "../../authentification/authentification.module";
-
+import { PopupResetPasswordComponent } from '../../authentification/components/popup-reset-password/popup-reset-password.component';
 
 @NgModule({
     declarations: [
         ListEnregistrementMatComponent,
         EditEnregistrementMatComponent,
         DetailEnregistrementMatComponent,
-        AddEnregistrementMatComponent
+        AddEnregistrementMatComponent,
+        PopupResetPasswordComponent
     ],
     exports: [
         ListEnregistrementMatComponent,
         EditEnregistrementMatComponent,
         DetailEnregistrementMatComponent,
-        AddEnregistrementMatComponent
+        AddEnregistrementMatComponent,
+        PopupResetPasswordComponent
     ],
     imports: [
         CommonModule,

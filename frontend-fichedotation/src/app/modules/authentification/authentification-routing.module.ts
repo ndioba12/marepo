@@ -13,7 +13,8 @@ const routes: Routes = [
       { path: "login", component: LoginComponent, title: "Login"},
       { path: "forgot-password", component: ForgotPasswordComponent, title: "Forgot password" , data:{ animation:'isRight' } },
       { path: "reset-password", component: ResetPasswordComponent, title: "Reset password", data:{ animation:'isLeft' } },
-      { path: "", redirectTo: "login", pathMatch: "full" }
+      { path: "", redirectTo: "login", pathMatch: "full" },
+      // /:token
     ]
   }
 ];

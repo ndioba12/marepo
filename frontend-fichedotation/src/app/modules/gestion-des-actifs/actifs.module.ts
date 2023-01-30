@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 import { ActifsRoutingModule } from './actifs-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
-
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     SharedModule,

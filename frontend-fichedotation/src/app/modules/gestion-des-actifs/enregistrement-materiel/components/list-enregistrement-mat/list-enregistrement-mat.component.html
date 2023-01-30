@@ -34,8 +34,8 @@
                 <option value="Informatique">Informatique</option>
             </select>
             <input class="form-control form-control-sm" placeholder="Date d'achat" onfocus="(this.type='date')" onblur="(this.type='text')">
-            <button class="btn btn-sm btn-outline-secondary btn-export"> <i class="fa fa-file-pdf"></i> Exporter PDF</button>
-            <button class="btn btn-sm btn-success btn-export"> <i class=" fa fa-file-excel"></i> Exporter Excel</button>
+            <button class="btn btn-sm btn-outline-danger btn-export"> <i class="fa fa-file-pdf"></i> Exporter PDF</button>
+            <button class="btn btn-sm btn-outline-success btn-export"> <i class=" fa fa-file-excel"></i> Exporter Excel</button>
             <button class="btn btn-sm btn-outline-primary" (click)="addMateriel()"> <i class=" fa fa-add"></i>
                 Matériel</button>
         </div>
@@ -48,7 +48,6 @@
             <tr>
                 <th scope="col">Désignation</th>
                 <th scope="col">Type de matériel</th>
-                <th scope="col">Appellation commerciale</th>
                 <th scope="col">Fournisseur</th>
                 <th scope="col">Prix d'achat</th>
                 <th scope="col">Date d'achat</th>
@@ -59,7 +58,6 @@
         <tbody>
             <tr *ngFor="let affectation of affectations">
                 <td>Otto</td>
-                <td>Mark</td>
                 <td>Otto</td>
                 <td>@mdo</td>
                 <td>Otto</td>
@@ -76,7 +74,7 @@
                     <a [routerLink]="[affectation.id,'modifier-enregistrement-materiel']" title="Modifier">
                         <span class="fa fa-edit tx-blue mx-3"></span>
                     </a>
-                    <span (click)="deleteItem()" class="fa fa-trash text-danger"></span>
+                    <span (click)="deleteItem()" class="fa fa-trash text-danger trash-button"></span>
                 </td>
             </tr>
         </tbody>
@@ -100,6 +98,3 @@
         </ngb-pagination>
     </div>
 </div>
-
-<!-- Popup Reset Password -->
-<app-popup-reset-password></app-popup-reset-password>

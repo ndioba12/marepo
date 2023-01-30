@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://localhost:8282/dotation-api-v1',
+
+  // host_address: "localhost",
+  // apiPort:"8282",
+  // apiContentPath: "dotation-api-v1"
 };
 
 /*

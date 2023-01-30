@@ -6,3 +6,8 @@
     background-size: cover;
     height: 100%;
 }
+.erreur{
+    font-size: small;
+    color: red;
+    padding-top: 1rem;
+}

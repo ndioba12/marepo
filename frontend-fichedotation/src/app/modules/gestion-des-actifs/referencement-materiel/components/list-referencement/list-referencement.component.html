@@ -23,17 +23,16 @@
                 <option value="" disabled selected>Filter par etat</option>
                 <option *ngFor="let item of etat" [value]="item.value">{{ item.value | titlecase }}</option>
             </select>
-            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                <option value="" disabled selected>Filter par statut</option>
-                <option *ngFor="let item of statusMateriel" [value]="item.value">{{ item.value | titlecase }}</option>
-            </select>
+
+            <input type="text" class="form-control form-control-sm" type="date" placeholder="Date d'aquisition" >
+
             <select class="form-select form-select-sm" aria-label=".form-select-sm example">
                 <option value="" disabled selected>Type de matériel</option>
                 <option *ngFor="let item of typeMateriel" [value]="item.value">{{ item.value | titlecase }}</option>
             </select>
             <input type="text" class="form-control form-control-sm" placeholder="Date d'achat" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
-            <button class="btn btn-sm btn-outline-secondary btn-export"> <i class="fa fa-file-pdf"></i> Exporter PDF</button>
-            <button class="btn btn-sm btn-success btn-export"> <i class=" fa fa-file-excel"></i> Exporter Excel</button>
+            <button class="btn btn-sm btn-outline-danger btn-export"> <i class="fa fa-file-pdf"></i> Exporter PDF</button>
+            <button class="btn btn-sm btn-outline-success btn-export"> <i class=" fa fa-file-excel"></i> Exporter Excel</button>
         </div>
     </div>
 </div>
@@ -70,14 +69,17 @@
                     <span [appStatusMateriel]="item.statutMateriel" class="status-materiel"></span>
                 </td>
                 <td [width]="'10%'">
-                    <a [routerLink]="[item.id,'details-renferencement']" title="Ajouter une référence">
+                    <a [routerLink]="[item.id,'details-renferencement']" title="Détails du matériel">
                         <span class="fa fa-eye text-black-50"></span>
                     </a>
-                    <a [routerLink]="[item.id,'nouveau-renferencement']" title="Reférencement Matériel" class="mx-3">
+                    <a [routerLink]="[item.id,'nouveau-renferencement']" title="Reférencier" class="ms-2">
                         <span><img src="{{'assets/icons/ref-mat.svg'}}" alt="Reférencement Matériel"></span>
                     </a>
-                    <a [routerLink]="[item.id,'nouvel-affectation']" title="Affectation Matériel">
+                    <a [routerLink]="[item.id,'nouvel-affectation']" title="Affecter" class="ms-2">
                         <span><img src="{{'assets/icons/aff-mat.svg'}}" alt="Affectation Matériel"></span>
+                    </a>
+                    <a [routerLink]="[item.id,'recuperation']" title="Recupérer" class="ms-2">
+                        <span><img src="{{'assets/icons/recuperation.svg'}}" alt="Recuperation Matériel"></span>
                     </a>
                 </td>
             </tr>
@@ -102,6 +104,3 @@
         </ngb-pagination>
     </div>
 </div>
-
-<!-- Popup Reset Password -->
-<app-popup-reset-password></app-popup-reset-password>

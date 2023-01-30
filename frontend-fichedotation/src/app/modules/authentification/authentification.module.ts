@@ -1,26 +1,30 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AuthentificationRoutingModule } from './authentification-routing.module';
 import { LoginComponent } from './components/login/login.component';
-import { PopupResetPasswordComponent } from './components/popup-reset-password/popup-reset-password.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    PopupResetPasswordComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent
   ],
   imports: [
     CommonModule,
-    AuthentificationRoutingModule
+    AuthentificationRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+    
+  ],
+
   exports:[
-    PopupResetPasswordComponent
   ]
 })
-export class AuthentificationModule { }
+export class AuthentificationModule {}
