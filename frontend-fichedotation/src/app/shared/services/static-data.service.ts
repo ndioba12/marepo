@@ -22,4 +22,9 @@ export class StaticDataService {
 
   allEntites = (): Observable<ResponseApi> =>
     this.http.get<ResponseApi>(`${environment.apiUrl}/entites`);
+    allTypeMateriels = (): Observable<ResponseApi> =>
+    this.http.get<ResponseApi>(`${environment.apiUrl}/listTypeMateriels`);
+  
+    allCatMateriels = (): Observable<ResponseApi> =>
+    this.http.get<ResponseApi>(`${environment.apiUrl}/listCatMateriels`);
 }

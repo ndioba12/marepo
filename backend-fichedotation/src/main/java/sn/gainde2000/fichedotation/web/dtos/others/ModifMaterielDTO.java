@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
@@ -21,7 +19,7 @@ import java.util.Date;
 @AllArgsConstructor
 //exclure les propriétés ayant des valeurs nulles / vides ou par défaut.
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
-public class ModificationAchatDTO implements Serializable {
+public class ModifMaterielDTO implements Serializable {
     private static final long serialVersionUID = -1655762844468520301L;
 
     //private Integer id;

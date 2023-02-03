@@ -11,6 +11,7 @@ import sn.gainde2000.fichedotation.web.dtos.messages.responses.Response;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 
 @Tag(name = "GestionUtilisateurController", description = "Permet de gérer les opérations sur les utilisateurs")
@@ -52,6 +53,16 @@ public class GestionUtilisateurController {
     @PostMapping("/saveUtilisateur")
     public Response<Object> saveUtilisateur(@RequestBody @Valid UtilisateurDTO dto) {
         return iUtilisateur.saveUtilisateur(dto);
+    }
+
+    /**
+     * autorise uniquement pour l'ADMINISTRATEUR
+     **/
+    @Operation(summary = "Endpoint pour charger dans la base de données les utilisateurs depuis un fichier excel. ['ADM', 'SAD']")
+    @PreAuthorize("hasAnyAuthority('SAD')")
+    @PostMapping("/saveUsersFromExcel")
+    public Response<Object> saveUtilisateursFromExcel(@RequestBody @Valid List<UtilisateurDTO> usersList){
+        return iUtilisateur.saveUtilisateursFromExcel(usersList);
     }
 
     /**

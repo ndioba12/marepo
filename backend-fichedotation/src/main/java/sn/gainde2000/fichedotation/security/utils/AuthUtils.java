@@ -49,7 +49,7 @@ public class AuthUtils {
     private static MenuMapper menuMapper;
 
     @Autowired
-    private AuthUtils(UtilisateurMapper utilisateurMapper, MenuMapper menuMapper) {
+    private AuthUtils( UtilisateurMapper utilisateurMapper, MenuMapper menuMapper) {
         AuthUtils.utilisateurMapper = utilisateurMapper;
         AuthUtils.menuMapper = menuMapper;
     }

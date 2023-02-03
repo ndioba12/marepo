@@ -15,7 +15,7 @@ const TIME_MILLIS_BEFORE_LOGOUT = 30 * 1000;
 
 @Injectable({
   providedIn: 'root',
-})
+}) 
 export class AuthService {
   timeoutInterval: any;
   logoutInterval: any;

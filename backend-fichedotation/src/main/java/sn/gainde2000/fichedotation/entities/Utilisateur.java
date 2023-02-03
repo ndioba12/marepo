@@ -11,6 +11,7 @@ import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 import sn.gainde2000.fichedotation.entities.audit.Auditable;
 
+import javax.annotation.Nullable;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -38,6 +39,10 @@ public class Utilisateur extends Auditable<Integer> implements Serializable {
     private Integer id;
 
     @Size(max = 50)
+    @Column(name = "Uti_matricule")
+    private String matricule;
+
+    @Size(max = 50)
     @Column(name = "Uti_nom")
     private String nom;
 
@@ -52,6 +57,9 @@ public class Utilisateur extends Auditable<Integer> implements Serializable {
     @Column(name = "Uti_password")
     private String password;
 
+    @Column(name = "Uti_fonction")
+    private String fonction;
+
     @Column(name = "Uti_first_log", columnDefinition = "boolean default true")
     private Boolean firstLog = true;
 
@@ -61,6 +69,7 @@ public class Utilisateur extends Auditable<Integer> implements Serializable {
     @Column(name = "Uti_is_deleted", columnDefinition = "boolean default false")
     private Boolean isDeleteted = Boolean.FALSE;
 
+    @Nullable
     @Size(max = 50)
     @Column(name = "Uti_telephone")
     private String telephone;
@@ -71,6 +80,10 @@ public class Utilisateur extends Auditable<Integer> implements Serializable {
    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Uti_Pro_id")
     private Profil linkedProfil;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "Uti_Ent_id")
+    private Entite linkedEntite;
 
     @Override
     public boolean equals(Object o) {

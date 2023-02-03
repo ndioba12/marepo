@@ -2,14 +2,8 @@ package sn.gainde2000.fichedotation.web.dtos.mappers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import sn.gainde2000.fichedotation.entities.CatImmobilisation;
-import sn.gainde2000.fichedotation.entities.Immobilisation;
-import sn.gainde2000.fichedotation.entities.TypeCession;
-import sn.gainde2000.fichedotation.entities.TypeImmobilisation;
-import sn.gainde2000.fichedotation.web.dtos.others.AjoutAchatDTO;
-import sn.gainde2000.fichedotation.web.dtos.others.CatImmobilisationDTO;
-import sn.gainde2000.fichedotation.web.dtos.others.TypeCessionDTO;
-import sn.gainde2000.fichedotation.web.dtos.others.TypeImmobilisationDTO;
+import sn.gainde2000.fichedotation.entities.*;
+import sn.gainde2000.fichedotation.web.dtos.others.*;
 
 /**
  * @author : alndiaye (Amadou Lamine NDIAYE)
@@ -42,11 +36,11 @@ public abstract class OthersMapperDecorator implements OthersMapper {
     }
 
     @Override
-    public AjoutAchatDTO mapToImmobilisationDTO(Immobilisation immobilisation) {
+    public AjoutMaterielDTO mapToImmobilisationDTO(Immobilisation immobilisation) {
         return othersMapper.mapToImmobilisationDTO(immobilisation);
     }
     @Override
-    public Immobilisation mapToImmobilisation(AjoutAchatDTO immobilisationDTO) {
+    public Immobilisation mapToImmobilisation(AjoutMaterielDTO immobilisationDTO) {
         return  othersMapper.mapToImmobilisation(immobilisationDTO);
     }
     @Override
@@ -56,6 +50,15 @@ public abstract class OthersMapperDecorator implements OthersMapper {
     @Override
     public CatImmobilisation mapToCatImmobilisation(CatImmobilisationDTO catImmobilisationDTO) {
         return  othersMapper.mapToCatImmobilisation(catImmobilisationDTO);
+    }
+
+    @Override
+    public EtatDTO mapToEtatDTO(Etat etat) {
+        return othersMapper.mapToEtatDTO(etat);
+    }
+    @Override
+    public Etat mapToEtat(EtatDTO etatDTO) {
+        return  othersMapper.mapToEtat(etatDTO);
     }
 
 }

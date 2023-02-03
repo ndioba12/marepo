@@ -1,11 +1,10 @@
 package sn.gainde2000.fichedotation.web.dtos.others;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import javax.validation.constraints.NotBlank;
@@ -19,9 +18,12 @@ import java.util.Date;
 @Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
+@Builder
+@JsonIgnoreProperties(ignoreUnknown = true)
 //exclure les propriétés ayant des valeurs nulles / vides ou par défaut.
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
-public class AjoutAchatDTO implements Serializable {
+public class AjoutMaterielDTO implements Serializable {
     private static final long serialVersionUID = -1655762844468520301L;
 
     private Integer id;
@@ -41,14 +43,8 @@ public class AjoutAchatDTO implements Serializable {
     private String fournisseur;
     @Size(min = 2, max = 255, message = "Le champ accessoires   doit être comprise entre 2 et 100!")
     private String accessoires;
-
-
-    @Size(min = 2, max = 255, message = "Le champ referenceInterne doit être comprise entre 2 et 100!")
-    private String referenceInterne;
-
-    @Size(min = 2, max = 100, message = "La reference commerciale doit être comprise entre 2 et 100!")
-    private String refCommercial;
     @NotNull(message = "La date d'acquisition ne doit pas être vide!")
+   // @JsonFormat(pattern="yyyy-MM-dd")
     private Date dateAcquisition;
 
     @NotNull(message = "Le modele ne doit pas être vide!")
@@ -59,11 +55,6 @@ public class AjoutAchatDTO implements Serializable {
     private TypeImmobilisationDTO typeImmobilisation;
     @NotNull(message = "La categorie d'immobilisation ne doit pas être vide!")
     private CatImmobilisationDTO catImmobilisation;
+    //private EtatDTO etat;
 
- //  private Statut statut=new Statut();
-
-
-    /*  public AjoutAchatDTO(Integer id) {
-        this.id = id;
-    }*/
 }

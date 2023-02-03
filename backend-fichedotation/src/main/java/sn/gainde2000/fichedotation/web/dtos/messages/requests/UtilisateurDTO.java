@@ -9,8 +9,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import lombok.experimental.Accessors;
+import sn.gainde2000.fichedotation.entities.Entite;
+import sn.gainde2000.fichedotation.entities.Profil;
 import sn.gainde2000.fichedotation.web.dtos.messages.responses.authentification.ProfilDTO;
+import sn.gainde2000.fichedotation.web.dtos.others.EntiteDTO;
 
+import javax.annotation.Nullable;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -22,11 +26,15 @@ import javax.validation.constraints.Size;
 @Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UtilisateurDTO {
     private Integer id;
+
+    @NotBlank(message = "La matricule ne doit pas être vide!")
+    private String matricule;
 
     @NotBlank(message = "Le nom ne doit pas être vide!")
     @Size(min = 2, max = 20, message = "La taille du nom doit être comprise entre 2 et 20!")
@@ -40,11 +48,16 @@ public class UtilisateurDTO {
     @Email(message = "L'email n'est pas valide!")
     private String email;
 
-    @NotBlank(message = "Le téléphone ne doit pas être vide!")
-    private String telephone;
+    @NotBlank(message = "La fonction ne doit pas être vide!")
+    private String fonction = "Personnel"; //Personnel par defaut pour le moment
 
-    private String adresse;
+    @NotNull(message = "Le status ne doit pas être vide")
+    private Boolean status = true; //Statut par defaut: true
 
     @NotNull(message = "Le profil ne doit pas être null!")
     private ProfilDTO linkedProfil;
+
+    @NotNull(message = "L'entité ne doit pas être null!")
+    private EntiteDTO linkedEntite;
+
 }

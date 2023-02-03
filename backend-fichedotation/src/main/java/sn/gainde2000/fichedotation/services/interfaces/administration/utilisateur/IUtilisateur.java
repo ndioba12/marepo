@@ -3,6 +3,8 @@ package sn.gainde2000.fichedotation.services.interfaces.administration.utilisate
 import sn.gainde2000.fichedotation.web.dtos.messages.requests.UtilisateurDTO;
 import sn.gainde2000.fichedotation.web.dtos.messages.responses.Response;
 
+import java.util.List;
+
 
 public interface IUtilisateur {
 
@@ -12,4 +14,5 @@ public interface IUtilisateur {
     Response<Object> deleteUtilisateur(Integer id);
     Response<Object> changeStatus(Integer id);
     Response<Object> getUtilisateur(Integer id);
+    Response<Object> saveUtilisateursFromExcel(List<UtilisateurDTO> usersList);
 }

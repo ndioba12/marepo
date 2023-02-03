@@ -20,11 +20,15 @@ public interface OthersMapper {
 
         TypeImmobilisation mapToTypeImmobilisation(TypeImmobilisationDTO typeImmobilisationDTO);
 
-        AjoutAchatDTO mapToImmobilisationDTO(Immobilisation immobilisation);
+        AjoutMaterielDTO mapToImmobilisationDTO(Immobilisation immobilisation);
 
-        Immobilisation mapToImmobilisation(AjoutAchatDTO immobilisationDTO);
+        Immobilisation mapToImmobilisation(AjoutMaterielDTO immobilisationDTO);
        CatImmobilisationDTO mapToCatImmobilisationDTO(CatImmobilisation catImmobilisation);
 
         CatImmobilisation mapToCatImmobilisation(CatImmobilisationDTO catImmobilisationDTO);
+
+       EtatDTO mapToEtatDTO(Etat etat);
+
+    Etat mapToEtat( EtatDTO etatDTO);
 }
 

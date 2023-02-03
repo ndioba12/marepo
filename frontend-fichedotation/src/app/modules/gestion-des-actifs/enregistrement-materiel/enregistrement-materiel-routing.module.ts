@@ -18,6 +18,7 @@ const routes: Routes = [
       {
         path:"nouvel-enregistrement-materiel",
         component:AddEnregistrementMatComponent
+        
       },
       {
         path:":id/modifier-enregistrement-materiel",

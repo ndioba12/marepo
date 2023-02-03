@@ -24,8 +24,10 @@ import sn.gainde2000.fichedotation.web.dtos.messages.requests.UtilisateurDTO;
 import sn.gainde2000.fichedotation.web.dtos.messages.requests.authentification.LoginFormDTO;
 import sn.gainde2000.fichedotation.web.dtos.messages.responses.Response;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -58,21 +60,75 @@ public class GestionUtilisateurImpl implements IUtilisateur {
     }
 
     @Override
+    @Transactional
+    public Response<Object> saveUtilisateursFromExcel(List<UtilisateurDTO> usersList){
+
+        //L'idée est d'ignorer tous les utilisateurs déjà enregistré dans la base de données.
+
+
+        List<Utilisateur> users = utilisateurRepository.findAll();
+
+        if(users.isEmpty()){
+            for (UtilisateurDTO userDTO:usersList){
+                Utilisateur newUser = utilisateurMapper.map(userDTO);
+                newUser.setPassword(encoder.encode(PasswordGenerator.GenerateRandomString()));
+                newUser.setFirstLog(true);
+                newUser.setStatus(true);
+                Utilisateur savedUser = utilisateurRepository.save(newUser);
+
+
+                //notificationService.createNewUserNotification(LoginFormDTO.builder().login(savedUser.getEmail()).password(savedUser.getPassword()).build(),"FIRST_CONNEXION", false);
+            }
+            return Response.ok().setMessage("Les utilisateurs ont été chargés. Chaque utilisateur a reçu un lien de connexion à la plateforme par mail !");
+        }
+
+        List<String> userMails = users
+                .stream()
+                .map(user -> user.getEmail())
+                .collect(Collectors.toList());
+
+        //Map des UtilisateursDTO en Utilisateur, puis filtrage des utilisateurs à charger dont leur email n'est pas présent dans la liste des utilisateurs dans la base de données
+        List<Utilisateur> usersToSave = usersList.stream()
+                .map(userDTO -> {
+                            Utilisateur mappedUser = utilisateurMapper.map(userDTO);
+                            mappedUser.setFirstLog(true);
+                            mappedUser.setPassword(encoder.encode(PasswordGenerator.GenerateRandomString()));
+                            return mappedUser;
+                        }
+                )
+                .filter(newUser -> !userMails.contains(newUser.getEmail()))
+                .collect(Collectors.toList());
+
+        if(usersToSave.isEmpty()) return Response.exception().setMessage("Tous ces utilisateurs dans le fichier ont déjà été chargés!");
+
+        for(Utilisateur newUser:usersToSave){
+            newUser.setPassword(encoder.encode(PasswordGenerator.GenerateRandomString()));
+            newUser.setFirstLog(true);
+            newUser.setStatus(true);
+            Utilisateur savedUser = utilisateurRepository.save(newUser);
+            // notificationService.createNewUserNotification(LoginFormDTO.builder().login(savedUser.getEmail()).password(savedUser.getPassword()).build(),"FIRST_CONNEXION", false);
+        }
+        return Response.ok().setMessage("Les utilisateurs ont été chargés. Chaque utilisateur a reçu un lien de connexion à la plateforme par mail !");
+    }
+
+    @Override
     public Response<Object> listUtilisateur(int page, int size, String filter) {
         BooleanBuilder builder = new BooleanBuilder();
 
         Page<Utilisateur> utilisateurPage;
         if (StringUtils.isNotBlank(filter)) {
             builder.andAnyOf(
+                    QUtilisateur.utilisateur.matricule.containsIgnoreCase(filter),
                     QUtilisateur.utilisateur.prenom.containsIgnoreCase(filter),
                     QUtilisateur.utilisateur.nom.containsIgnoreCase(filter),
                     QUtilisateur.utilisateur.linkedProfil.libelle.containsIgnoreCase(filter),
                     QUtilisateur.utilisateur.email.containsIgnoreCase(filter),
-                    QUtilisateur.utilisateur.adresse.containsIgnoreCase(filter)
+                    QUtilisateur.utilisateur.linkedEntite.libelle.containsIgnoreCase(filter)
             );
         }
 
         utilisateurPage = Objects.nonNull(builder.getValue()) ? utilisateurRepository.findAll(builder.getValue(), PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "id"))) : utilisateurRepository.findAll(PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "id")));
+
 
         Response.PageMetadata pageMetadata = Response.PageMetadata.builder()
                 .size(utilisateurPage.getSize())
@@ -81,7 +137,28 @@ public class GestionUtilisateurImpl implements IUtilisateur {
                 .totalPages(utilisateurPage.getTotalPages())
                 .build();
 
-        return Response.ok().setPayload(utilisateurPage.getContent()).setMetadata(pageMetadata).setMessage("Liste des utilisateurs !");
+        ;
+
+        return Response
+                .ok()
+                .setPayload(
+                        utilisateurPage.getContent()
+                        .stream()
+                        .map(utilisateur ->
+                             UtilisateurDTO.builder()
+                                     .id(utilisateur.getId())
+                                     .matricule(utilisateur.getMatricule())
+                                     .nom(utilisateur.getNom())
+                                     .prenom(utilisateur.getPrenom())
+                                     .email(utilisateur.getEmail())
+                                     .status(utilisateur.getStatus())
+                                     .linkedProfil(utilisateurMapper.map(utilisateur).getLinkedProfil())
+                                     .linkedEntite(utilisateurMapper.map(utilisateur).getLinkedEntite())
+                                     .build()
+                        )
+                        .collect(Collectors.toList())
+                )
+                .setMetadata(pageMetadata).setMessage("Liste des utilisateurs !");
     }
 
     @Override
@@ -97,12 +174,19 @@ public class GestionUtilisateurImpl implements IUtilisateur {
         Optional<Utilisateur> optionalUtilisateur = utilisateurRepository.findById(id);
 
         if (optionalUtilisateur.isEmpty()) throw new GenericApiException("Utilisateur absent!");
+
         Utilisateur currentUser = optionalUtilisateur.get();
-        currentUser.setNom(dto.getNom());
-        currentUser.setPrenom(dto.getPrenom());
-        currentUser.setTelephone(dto.getTelephone());
-        currentUser.setAdresse(dto.getAdresse());
+        Utilisateur inComingUser = utilisateurMapper.map(dto);
+
+        currentUser.setMatricule(inComingUser.getMatricule());
+        currentUser.setNom(inComingUser.getNom());
+        currentUser.setPrenom(inComingUser.getPrenom());
+        currentUser.setEmail(inComingUser.getEmail());
+        currentUser.setLinkedEntite(inComingUser.getLinkedEntite());
+        currentUser.setLinkedProfil(inComingUser.getLinkedProfil());
+
         utilisateurRepository.save(currentUser);
+
         return Response.ok().setMessage("Utilisateur modifié avec succès !");
     }
 

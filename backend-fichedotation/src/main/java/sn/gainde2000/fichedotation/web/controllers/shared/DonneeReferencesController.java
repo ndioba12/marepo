@@ -12,10 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import sn.gainde2000.fichedotation.entities.TypeCession;
 import sn.gainde2000.fichedotation.services.interfaces.shared.IDonneeReferences;
-import sn.gainde2000.fichedotation.web.dtos.messages.requests.UtilisateurDTO;
 import sn.gainde2000.fichedotation.web.dtos.messages.responses.Response;
+import sn.gainde2000.fichedotation.web.dtos.others.EntiteDTO;
 import sn.gainde2000.fichedotation.web.dtos.others.TypeCessionDTO;
 
 import javax.validation.Valid;
@@ -30,6 +29,20 @@ public class DonneeReferencesController {
     @GetMapping("/profils")
     public Response<Object> listProfil() {
         return iDonneeReferences.listProfil();
+    }
+
+
+    @Operation(summary = "Endpoint pour récupérer la liste des entités ou départements de Gainde2000")
+    @GetMapping("/entites")
+    public Response<Object> listEntite() {
+        return iDonneeReferences.listEntite();
+    }
+
+    @Operation(summary = "Endpoint pour sauvegarder une nouvelle entité ou département de Gainde2000")
+    @PostMapping("/saveEntite")
+    public Response<Object> saveEntite(@RequestBody  EntiteDTO dto) {
+        return iDonneeReferences.saveEntite(dto);
+
     }
 
 
@@ -49,5 +62,20 @@ public class DonneeReferencesController {
     @GetMapping("/statuts")
     public Response<Object> listStatut() {
         return iDonneeReferences.listStatut();
+
+    }
+
+    @Operation(summary = "Endpoint pour récupérer la liste des type de materiels")
+    @GetMapping("/listTypeMateriels")
+    public Response<Object> listTypeMateriels() {
+        return iDonneeReferences.listTypeMateriels();
+
+    }
+
+    @Operation(summary = "Endpoint pour récupérer la liste des categories de materiels")
+    @GetMapping("/listCatMateriels")
+    public Response<Object> listCatMateriels() {
+        return iDonneeReferences.listCatMateriels();
+
     }
 }

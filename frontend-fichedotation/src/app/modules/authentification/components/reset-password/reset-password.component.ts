@@ -13,6 +13,7 @@ import { CustomPasswordValidators } from 'src/app/shared/helpers/validators/pass
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.css'],
 })
+
 export class ResetPasswordComponent implements OnInit {
   hide: boolean = true;
   hide2: boolean = true;

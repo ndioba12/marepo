@@ -3,32 +3,32 @@
  * Date :17/08/2022
  */
 
-package sn.gainde2000.fichedotation.services.implementations.achats;
+package sn.gainde2000.fichedotation.services.implementations.gestionMateriels;
 
+import com.querydsl.core.BooleanBuilder;
 import lombok.AllArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sn.gainde2000.fichedotation.entities.CatImmobilisation;
-import sn.gainde2000.fichedotation.entities.Immobilisation;
-import sn.gainde2000.fichedotation.entities.TypeImmobilisation;
-import sn.gainde2000.fichedotation.entities.Utilisateur;
+import sn.gainde2000.fichedotation.entities.*;
 import sn.gainde2000.fichedotation.exceptions.GenericApiException;
 import sn.gainde2000.fichedotation.repositories.EtatRepository;
 import sn.gainde2000.fichedotation.repositories.ImmobilisationRepository;
 import sn.gainde2000.fichedotation.repositories.StatutRepository;
-import sn.gainde2000.fichedotation.services.interfaces.achats.IGestionAchat;
+import sn.gainde2000.fichedotation.services.interfaces.GestionMareriels.IGestionMateriels;
 import sn.gainde2000.fichedotation.web.dtos.mappers.OthersMapper;
 import sn.gainde2000.fichedotation.web.dtos.messages.responses.Response;
-import sn.gainde2000.fichedotation.web.dtos.others.AjoutAchatDTO;
-import sn.gainde2000.fichedotation.web.dtos.others.CatImmobilisationDTO;
-import sn.gainde2000.fichedotation.web.dtos.others.ModificationAchatDTO;
-import sn.gainde2000.fichedotation.web.dtos.others.TypeImmobilisationDTO;
+import sn.gainde2000.fichedotation.web.dtos.others.*;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
-public class GestionAchatImpl implements IGestionAchat {
+public class GestionMaterielsImpl implements IGestionMateriels {
 
     private final ImmobilisationRepository immobilisationRepository;
     private final StatutRepository statutRepository;
@@ -36,26 +36,65 @@ public class GestionAchatImpl implements IGestionAchat {
 
     private final OthersMapper othersMapper;
 
+
+    //Liste des immobilisations
     @Override
-    public Response<Object> listImmobilisations() {
-        List<Immobilisation> listeImmobilisations=immobilisationRepository.findAll();
-        List<AjoutAchatDTO> listeAchat = new ArrayList<>();
-        for(int i=0;i<listeImmobilisations.size();i++){
-            listeAchat.add(othersMapper.mapToImmobilisationDTO(listeImmobilisations.get(i)));
+    public Response<Object> listImmobilisations(int page, int size, String filter) {
+        BooleanBuilder builder = new BooleanBuilder();
+
+        Page<Immobilisation> immobilisationPage;
+        if (StringUtils.isNotBlank(filter)) {
+            builder.andAnyOf(
+                    QImmobilisation.immobilisation.designation.containsIgnoreCase(filter),
+                    QImmobilisation.immobilisation.typeImmobilisation.libelle.containsIgnoreCase(filter),
+                    QImmobilisation.immobilisation.fournisseur.containsIgnoreCase(filter),
+                    QImmobilisation.immobilisation.prixAcquisition.stringValue().contains(filter),
+                    QImmobilisation.immobilisation.dateAcquisition.stringValue().contains(filter),
+                    QImmobilisation.immobilisation.statut.libelle.containsIgnoreCase(filter)
+            );
         }
-        //List<AjoutAchatDTO> tt=othersMapper.mapToImmobilisationDTO(listeImmobilisations);
-        return Response.ok().setPayload(listeAchat).setMessage("Liste des immobilisations !");
+
+        immobilisationPage = Objects.nonNull(builder.getValue()) ? immobilisationRepository.findAll(builder.getValue(), PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "id"))) : immobilisationRepository.findAll(PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "id")));
+
+        Response.PageMetadata pageMetadata = Response.PageMetadata.builder()
+                .size(immobilisationPage.getSize())
+                .number(immobilisationPage.getNumber())
+                .totalElements(immobilisationPage.getTotalElements())
+                .totalPages(immobilisationPage.getTotalPages())
+                .build();
+
+        return Response
+                .ok()
+                .setPayload(
+                        immobilisationPage.getContent()
+                                .stream()
+                                .map(immobilisation ->
+                                        ListMaterielsDTO.builder()
+                                                .id(immobilisation.getId())
+                                                .designation(immobilisation.getDesignation())
+                                                .typeImmobilisation(othersMapper.mapToTypeImmobilisationDTO(immobilisation.getTypeImmobilisation()))
+                                                .fournisseur(immobilisation.getFournisseur())
+                                                .prixAcquisition(immobilisation.getPrixAcquisition())
+                                                .dateAcquisition(immobilisation.getDateAcquisition())
+                                                .etat(othersMapper.mapToEtatDTO(immobilisation.getEtat()))
+                                                .build()
+                                )
+                                .collect(Collectors.toList())
+                )
+                .setMetadata(pageMetadata).setMessage("Liste des utilisateurs !");
     }
+
+
     @Override
     public Response<Object> getImmobilisation(Integer id) {
         Immobilisation immobilisation = immobilisationRepository.findById(id).orElseThrow(() -> new GenericApiException("immobilisation absent!"));
-        AjoutAchatDTO dto= othersMapper.mapToImmobilisationDTO(immobilisation);
+        AjoutMaterielDTO dto= othersMapper.mapToImmobilisationDTO(immobilisation);
         return Response.ok().setPayload(dto).setMessage("immobilisation retrouvé avec succès!");
     }
     //Ajout d'un nouvel materiel
     @Transactional
     @Override
-    public Response<Object> addImmobilisation(AjoutAchatDTO model) {
+    public Response<Object> addImmobilisation(AjoutMaterielDTO model) {
 
             Optional<Immobilisation> optionalImmobilisation = immobilisationRepository.findByDesignation(model.getDesignation());
 
@@ -70,7 +109,7 @@ public class GestionAchatImpl implements IGestionAchat {
 
     @Transactional
     @Override
-    public Response<Object> updateImmobilisation(Integer id, ModificationAchatDTO dto) {
+    public Response<Object> updateImmobilisation(Integer id, ModifMaterielDTO dto) {
 
         Optional<Immobilisation> optionalImmobilisation = immobilisationRepository.findById(id);
 

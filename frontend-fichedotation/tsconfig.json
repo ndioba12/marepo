@@ -16,7 +16,8 @@
     "experimentalDecorators": true,
     "noImplicitAny": false,
     "moduleResolution": "node",
-    "importHelpers": true,
+    //"importHelpers": true,
+    "importHelpers": false,
     "strictPropertyInitialization": false,     //Ne pas forcer l'initialisation des variables
     "target": "es2020",
     "module": "es2020",

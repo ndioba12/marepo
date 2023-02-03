@@ -69,7 +69,6 @@ public class AuthentificationImpl implements IAuthentification {
 
         if (optionalUtilisateur.isPresent())
             return Response.exception().setMessage("Cet email correspond à un compte !");
-
         Utilisateur utilisateur = utilisateurMapper.map(utilisateurDTO);
         String generatedPassword = PasswordGenerator.GenerateRandomString();
         utilisateur.setPassword(encoder.encode(generatedPassword));
@@ -92,7 +91,7 @@ public class AuthentificationImpl implements IAuthentification {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
             String jwt = jwtProvider.generateJwtToken(authentication);
-            JwtResponseDTO response = new JwtResponseDTO(jwt, userDetails.getUsername(), userDetails.getAuthorities());
+            JwtResponseDTO response = new JwtResponseDTO(jwt, userDetails.getUsername() ,userDetails.getAuthorities());
 
             loginAttemptService.loginSucceeded(loginRequest.getLogin());
             return Response.ok().setPayload(response).setMessage("Authentification réussie");

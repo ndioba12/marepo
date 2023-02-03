@@ -1,0 +1,25 @@
+
+A partir du menu Gestion des materiels me permettre d'ajouter un nouveau materiel en cliquant sur le bouton :
+Avoir a disposition le formulaire avec les sections suivantes :
+
+Designation du materiel ;
+Type de materiel ;
+Identification du materiel ;
+Marque;
+Modele;
+-Accessoires associes ;
+Durée de Garantie ;
+Fournisseur  ;
+Prix d'acquisition  ;
+-Date d'acquisition  .
+b) Avoir a disposition deux boutons "Enregistrer" , et "Annuler";
+c) Ainsi les infos ajoutes seront mis a jour automatiquement.
+
+
+ 'A partir du menu Gestion des materiels me permettre de modifier un  materiel :
+Avoir a disposition l'icone ''modification'' a partir de la colonne Action;
+
+b) Afficher le formulaire avec les infos rapatries. Il pourra modifier chaque champ .
+c) Avoir la possibilite de cliquer sur les boutons ''enregistrer'' et ''Annuler'' .
+d) Ainsi les infos modifies seront mis a jour automatiquement.
+

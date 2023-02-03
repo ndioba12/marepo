@@ -5,9 +5,9 @@ import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-popup-reset-password',
-  templateUrl: './popup-reset-password.component.html',
-  styleUrls: ['./popup-reset-password.component.css'],
-})
+   templateUrl: './popup-reset-password.component.html',
+   styleUrls: ['./popup-reset-password.component.css'],
+ })
 export class PopupResetPasswordComponent {
   formBuiler: FormBuilder = new FormBuilder();
 

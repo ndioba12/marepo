@@ -81,7 +81,6 @@ public class NotificationServiceImpl implements INotificationService {
                 .build();
         sendMessage(mailInfosDTO);
     }
-
     @Override
     public void activationOrDeactivationOfAUser(String email, boolean action) {
         String objet;
@@ -306,7 +305,11 @@ public class NotificationServiceImpl implements INotificationService {
                 "                  <tbody>\n" +
                 "                    <tr>\n" +
                 "                      <td align=\"center\" style=\"font-size:0px;padding:0px;word-break:break-word;\">\n" +
+
                 "                        <div style=\"font-family:Roboto, Helvetica, sans-serif;font-size:18px;font-weight:500;line-height:24px;text-align:center;color:blue;\">Fiche de dotation de materiel de GAINDE 2000</div>\n" +
+
+                "                        <div style=\"font-family:Roboto, Helvetica, sans-serif;font-size:18px;font-weight:500;line-height:24px;text-align:center;color:blue;\">Gestion fiche de dotation et suivi des immobilisations</div>\n" +
+
                 "                      </td>\n" +
                 "                    </tr>\n" +
 /*                "                    <tr>\n" +

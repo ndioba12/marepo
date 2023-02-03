@@ -2,11 +2,9 @@ package sn.gainde2000.fichedotation.web.dtos.messages.responses.authentification
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.Accessors;
+import sn.gainde2000.fichedotation.web.dtos.others.EntiteDTO;
 
 import java.io.Serializable;
 
@@ -14,6 +12,7 @@ import java.io.Serializable;
  * @author : alndiaye (Amadou Lamine NDIAYE)
  */
 
+@ToString
 @Getter
 @Setter
 @Accessors(chain = true)
@@ -30,6 +29,7 @@ public class AuthenticatedUserInfosDTO implements Serializable {
     private String prenomNom;
     private String prenom;
     private String nom;
+    private String matricule;
     private String email;
     private String password;
     private Boolean firstLog;
@@ -37,6 +37,9 @@ public class AuthenticatedUserInfosDTO implements Serializable {
     private String adresse;
     private String telephone;
     private String telephone1;
+    private String fonction;
     private ProfilDTO linkedProfil;
+    private EntiteDTO linkedEntite;
+
 
 }

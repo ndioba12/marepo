@@ -47,31 +47,41 @@
         <thead>
             <tr>
                 <th scope="col">Désignation</th>
-                <th scope="col">Type de matériel</th>
+                <!-- <th scope="col">Type de matériel</th>-->
                 <th scope="col">Fournisseur</th>
                 <th scope="col">Prix d'achat</th>
                 <th scope="col">Date d'achat</th>
-                <th scope="col">Etat</th>
+                <th scope="col">Type de matériel</th>
+                <th scope="col">Statut</th>
+               <!-- <th scope="col">Etat</th>-->
                 <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let affectation of affectations">
-                <td>Otto</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+            <tr *ngFor="let materiel of materiels">
+             <!--   <td>Otto</td>
                 <td>Otto</td>
                 <td>@mdo</td>
-                <td>
+                <td>Otto</td>
+                <td>@mdo</td>
+               <td>
                     <p class="etats">
                         <span [appStatus]="affectation.etat" class="etat-materiel"></span>
                     </p>
-                </td>
+                </td>-->
+
+                <td>{{ materiel. designation}}</td>
+                <td>{{ materiel.fournisseur }}</td>   
+                <td>{{ materiel.prixAcquisition }}</td>
+                <td>{{ materiel.dateAcquisition }}</td>
+                <td>{{ materiel.typeImmobilisation?.libelle }}</td>
+                <td>{{ materiel.etat?.libelle }}</td>
+
                 <td [width]="'10%'">
-                    <a [routerLink]="[affectation.id,'detail-enregistrement-materiel']" title="Visualiser">
+                    <a [routerLink]="[materiel.id,'detail-enregistrement-materiel']" title="Visualiser">
                         <span class="fa fa-eye text-black-50"></span>
                     </a>
-                    <a [routerLink]="[affectation.id,'modifier-enregistrement-materiel']" title="Modifier">
+                    <a [routerLink]="[materiel.id,'modifier-enregistrement-materiel']" title="Modifier">
                         <span class="fa fa-edit tx-blue mx-3"></span>
                     </a>
                     <span (click)="deleteItem()" class="fa fa-trash text-danger trash-button"></span>
@@ -86,7 +96,7 @@
         <div class="d-flex">
             <span class="me-3">Affichage par</span>
             <select class="form-select form-select-sm" style="width: auto;height: 30px;" [(ngModel)]="pageSize"
-                (ngModelChange)="refreshAffectations()">
+                (ngModelChange)="getMateriels()">
                 <option [ngValue]="5">5</option>
                 <option [ngValue]="10">10</option>
                 <option [ngValue]="20">20</option>
@@ -94,7 +104,7 @@
         </div>
 
         <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
-            (pageChange)="refreshAffectations()" style="height: 20px !important;">
+            (pageChange)="getMateriels()" style="height: 20px !important;">
         </ngb-pagination>
     </div>
 </div>

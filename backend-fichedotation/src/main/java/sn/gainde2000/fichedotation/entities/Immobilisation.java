@@ -8,7 +8,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Builder
 @Getter
@@ -95,6 +97,12 @@ public class Immobilisation implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Imm_Cat_id")
     private CatImmobilisation catImmobilisation;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "Tr_Immobilisation_Utilisateur",
+            joinColumns = @JoinColumn(name = "Imm_id"),
+            inverseJoinColumns = @JoinColumn(name = "Uti_id"))
+    private Set<Utilisateur> users = new HashSet<>();
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

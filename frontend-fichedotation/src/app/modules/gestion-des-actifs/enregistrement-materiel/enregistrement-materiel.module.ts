@@ -9,6 +9,7 @@ import { AddEnregistrementMatComponent } from './components/add-enregistrement-m
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthentificationModule } from "../../authentification/authentification.module";
 import { PopupResetPasswordComponent } from '../../authentification/components/popup-reset-password/popup-reset-password.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { PopupResetPasswordComponent } from '../../authentification/components/p
         CommonModule,
         SharedModule,
         EnregistrementMaterielRoutingModule,
-        AuthentificationModule
+        AuthentificationModule,
+        ReactiveFormsModule
     ]
 })
 export class EnregistrementMaterielModule { }

@@ -26,13 +26,13 @@ import javax.validation.constraints.Email;
 public class AuthentificationController {
     public final PasswordEncoder encoder;
     private final IAuthentification iAuth;
-
+/*
     @Operation(summary = "Endpoint pour ajouter un utilisateur")
     @PostMapping("/signup")
     public Response<Object> registerUtilisateur(@Valid @RequestBody UtilisateurDTO dto) {
         return iAuth.registerUtilisateur(dto);
     }
-
+*/
     @Operation(summary = "Endpoint pour vérifier si un email est utilisé")
     @GetMapping("/checkIfEmailIsUsed/{email}")
     public Response<Object> checkIfEmailIsUsed(@PathVariable @Email String email) {
