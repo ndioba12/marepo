@@ -1,0 +1,75 @@
+<nav class="breadcrumb-layout mb-3"
+    style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a routerLink="../../../liste-des-materiels">
+                <i class="fa fa-list me-2"></i>
+                <span>Enregistrement Matériel</span>
+            </a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Détails N°{{id}}</li>
+    </ol>
+</nav>
+
+<div class="shadow-custom p-4 rounded-2">
+    <h5>Détails du matériel</h5>
+    <div class="row details g-3 mt-2">
+      <div class="col-lg-3">
+        <div class="details-item">
+          <p class="details-item-title">Désignation du materiel</p>
+          <p class="details-item-value">{{materielDetails?.designation}}</p>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="details-item">
+          <p class="details-item-title">marque du materiel</p>
+          <p class="details-item-value">{{materielDetails?.marque}}</p>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="details-item">
+          <p class="details-item-title">modele du materiel</p>
+          <p class="details-item-value">{{materielDetails?.modele}}</p>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="details-item">
+          <p class="details-item-title">fournisseur du matériel</p>
+          <p class="details-item-value">{{materielDetails?.fournisseur}}</p>
+        </div>
+      </div>
+      <hr /> 
+      <div class="col-lg-3">
+        <div class="details-item">
+          <p class="details-item-title">accessoires du matériel</p>
+          <p class="details-item-value">{{materielDetails?.accessoires}}</p>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="details-item">
+          <p class="details-item-title">prixdu matériel</p>
+          <p class="details-item-value">{{materielDetails?.prixAcquisition}}</p>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="details-item">
+          <p class="details-item-title">date d'acquisition</p>
+          <p class="details-item-value">{{materielDetails?.dateAcquisition}}</p>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="details-item">
+          <p class="details-item-title">type de matériel</p>
+          <p class="details-item-value">{{materielDetails?.typeImmobilisation.libelle}}</p>
+        </div>
+      </div>
+    </div>
+<br>
+    <div class="col-lg-12">
+        <div class="d-flex align-items-center">
+            <button class="button-outline-blue" type="reset" (click)="annuler()">Retour</button>
+        </div>
+    </div>
+  </div>
+  

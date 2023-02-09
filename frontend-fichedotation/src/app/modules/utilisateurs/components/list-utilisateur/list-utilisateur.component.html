@@ -1,0 +1,125 @@
+<nav
+  class="breadcrumb-layout"
+  style="
+    --bs-breadcrumb-divider: url(
+      &#34;data:image/svg + xml,
+      %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%236c757d'/%3E%3C/svg%3E&#34;
+    );
+  "
+  aria-label="breadcrumb"
+>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <i class="fa fa-list me-2"></i>
+      <span>Intervenants</span>
+    </li>
+    <!-- <li class="breadcrumb-item active" aria-current="page">Library</li> -->
+  </ol>
+</nav>
+
+<!-- TITRE ET FILTRE -->
+<div class="table-title row mt-3">
+  <div class="col-lg-8 ">
+    <h5 class="">Liste des intervenants</h5>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="d-flex justify-content-end" style="column-gap: 10px">
+      <label class="btn btn-sm btn-outline-success">
+        <i class="fa fa-file-import"></i>
+        <span
+          ><input
+            type="file"
+            (change)="onFileLoad($event)"
+            style="display: none"
+            accept=".csv, .xlsx"
+          />
+          Importer le fichier</span
+        >
+      </label>
+      <button class="btn btn-sm btn-outline-primary" (click)="addUser()">
+        <i class="fa fa-add"></i> Utilisateur
+      </button>
+    </div>
+  </div>
+</div>
+<!-- TABLEAU -->
+<div class="table-responsive">
+  <table class="table shadow-sm mt-4">
+    <thead>
+      <tr>
+        <th scope="col">Matricule</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Entité</th>
+        <th scope="col">Profil</th>
+        <th scope="col">Compte</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of utilisateurs">
+        <td>{{ user.matricule }}</td>
+        <td>{{ user.prenom }}</td>
+        <td>{{ user.nom }}</td>
+        <td>{{ user.linkedEntite?.libelle }}</td>
+        <td>{{ user.linkedProfil?.libelle }}</td>
+        <td>
+          <p class="etats">
+            <span [appEtatMateriel]="user.status!" class="etat-materiel"></span>
+          </p>
+        </td>
+        <td [width]="'10%'">
+          <ng-container *ngIf="!user.status">
+            <i
+              class="fa fa-lock-open text-green"
+              title="Debloquer"
+              id="status"
+              (click)="changeStatus(user)"
+              type="button"
+            ></i>
+          </ng-container>
+          <ng-container *ngIf="user.status">
+            <i
+              class="fa fa-lock text-danger"
+              title="Bloquer"
+              id="status"
+              (click)="changeStatus(user)"
+              type="button"
+            ></i>
+          </ng-container>
+
+          <a [routerLink]="[user.id, 'modifier-utilisateur']" title="Modifier">
+            <span class="fa fa-edit tx-blue mx-3"></span>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination -->
+  <div class="d-flex justify-content-between p-2">
+    <div class="d-flex">
+      <span class="me-3">Affichage par</span>
+      <select
+        class="form-select form-select-sm"
+        style="width: auto; height: 30px"
+        [(ngModel)]="pageSize"
+        (ngModelChange)="getUsers()"
+      >
+        <option [ngValue]="5">5</option>
+        <option [ngValue]="10">10</option>
+        <option [ngValue]="20">20</option>
+      </select>
+    </div>
+
+    <ngb-pagination
+      [collectionSize]="collectionSize"
+      [(page)]="page"
+      [pageSize]="pageSize"
+      (pageChange)="getUsers()"
+      style="height: 20px !important"
+    >
+    </ngb-pagination>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="col-lg-6">
+    <div class="shadow-custom p-4 rounded-3 h-100">
+      <div class="row">
+        <h5 class="p-0 m-0 pb-2">Informations personnelles</h5>
+        <hr />
+      </div>
+      <div class="row">
+        <table class="w-100">
+          <tr>
+            <td>Matricule :</td>
+            <th>{{matricule}} </th>
+          </tr>
+          <tr>
+            <td>Prénom et nom :</td>
+            <th>{{ fullName }}</th>
+          </tr>
+          <tr>
+            <td>Entité :</td>
+            <th>{{entite}}</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="shadow-custom p-4 rounded-3 h-100">
+      <div class="row">
+        <h5 class="p-0 m-0 pb-2">Réinitialisation mot de passe</h5>
+        <hr />
+      </div>
+      <form [formGroup]="updatePasswordForm" (ngSubmit)="updatePassword()">
+        <div class="row mb-4">
+          <label class="form-label p-0">Mot de passe actuel</label>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="currentPassword"
+          />
+        </div>
+
+        <div class="row mb-4">
+          <label class="form-label p-0">Nouveau mot de passe</label>
+          <div class="input-group input-icon p-0">
+            <input
+              [type]="hide ? 'password' : 'text'"
+              class="form-control"
+              formControlName="newPassword"
+              [ngClass]="{
+                'is-invalid':
+                  f['newPassword'].touched && f['newPassword'].invalid
+              }"
+            />
+            <i
+              [ngClass]="hide ? 'fa fa-eye' : 'fa fa-eye-slash'"
+              (click)="hide = !hide"
+            ></i>
+          </div>
+          <div *ngIf="f['newPassword']?.errors && f['newPassword']?.touched">
+            <small
+              *ngIf="f['newPassword'].hasError('required')"
+              style="color: red"
+              >Nouveau mot de passe <strong>obligatoire!</strong></small
+            >
+            <small
+              *ngIf="!f['newPassword'].hasError('required')"
+              style="color: red"
+              >Nouveau mot de passe <strong>non conforme!</strong></small
+            >
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <label class="form-label p-0">Confirmez le mot de passe</label>
+          <div class="input-group input-icon p-0">
+            <input
+              [type]="hide2 ? 'password' : 'text'"
+              class="form-control"
+              formControlName="newPasswordConfirm"
+              [ngClass]="{
+                'is-invalid':
+                  f['newPasswordConfirm'].touched &&
+                  f['newPasswordConfirm'].invalid
+              }"
+            />
+            <i
+              [ngClass]="hide2 ? 'fa fa-eye' : 'fa fa-eye-slash'"
+              (click)="hide2 = !hide2"
+            ></i>
+          </div>
+          <div *ngIf="f['newPassword']?.errors && f['newPassword']?.touched">
+            <small
+              *ngIf="f['newPasswordConfirm'].hasError('required')"
+              style="color: red"
+              >Confirmation de mot de passe <strong>obligatoire!</strong></small
+            >
+            <small
+              *ngIf="!f['newPasswordConfirm'].hasError('required')"
+              style="color: red"
+              >Confirmation de mot de passe
+              <strong>non conforme!</strong></small
+            >
+          </div>
+        </div>
+
+        <div class="row">
+          <button class="button-blue" type="submit">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

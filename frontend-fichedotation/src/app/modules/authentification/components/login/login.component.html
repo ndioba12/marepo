@@ -1,0 +1,82 @@
+<div class="box-center">
+  <div class="col-lg-10 mx-auto">
+    <div class="row bg-white shadow-lg rounded-3 overflow-hidden login">
+      <div class="col-lg-6" style="padding: 80px">
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()" ngNativeValidate>
+          <div class="d-flex flex-column m-0">
+            <span id="logo"
+              ><img
+                src="{{ 'assets/images/logo.png' }}"
+                alt="Gainde2000"
+                width="162px"
+            /></span>
+            <h5 class="text-center">Connexion</h5>
+
+            <div class="row mb-4">
+              <label class="form-label p-0">Identifiant</label>
+              <!-- <p
+                class="constraint identidiant-constraint"
+                *ngIf="!isValidIdent"
+              >
+                * Votre identifiant n'est pas valide.
+                [ngClass]="!isValidIdent ? 'input-constraint-border' : ''"
+              </p> -->
+              <div
+                class="input-group input-icon p-0"
+              >
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Identifiant"
+                  formControlName="login"
+                  required
+                />
+                <i class="fa fa-user"></i>
+              </div>
+            </div>
+
+            <div class="row mb-4">
+              <label class="form-label p-0">Mot de passe</label>
+              <!-- <p class="constraint identidiant-constraint" *ngIf="!isValidPwd">
+                * Votre mot de passe n'est pas conforme.
+                [ngClass]="!isValidPwd ? 'input-constraint-border' : ''"
+              </p> -->
+              <div
+                class="input-group input-icon p-0"
+              >
+                <input
+                  [type]="hide ? 'password' : 'text'"
+                  class="form-control"
+                  placeholder="Mot de passe"
+                  formControlName="password"
+                  required
+                />
+                <i
+                  [ngClass]="hide ? 'fa fa-eye' : 'fa fa-eye-slash'"
+                  (click)="hide = !hide"
+                ></i>
+              </div>
+            </div>
+
+            <div class="form-group row mb-4">
+              <a routerLink="../forgot-password" class="nav-link tx-blue" style="font-size: 14px;">Mot de passe oublié ?</a>
+          </div>
+
+            <div class="row">
+              <button class="button-blue" type="submit">Se connecter</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div
+        class="col-lg-6 bg-light p-0 m-0 bg-right text-white p-5 d-lg-block d-none"
+      >
+        <h3 class="title-img">
+          Dématérialisation <br />
+          de la fiche de dotation <br />
+          et du suivi du matériel
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>

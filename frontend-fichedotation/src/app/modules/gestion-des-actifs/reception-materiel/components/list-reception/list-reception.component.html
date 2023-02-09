@@ -1,0 +1,102 @@
+<nav class="breadcrumb-layout mb-3"
+    style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a routerLink="../../../liste-des-affectations" class="active">
+                <i class="fa fa-list me-2"></i>
+                <span>Reception Matériel</span>
+            </a>
+        </li>
+    </ol>
+</nav>
+
+
+<h5>Liste des affectations</h5>
+
+
+<div class="row g-3 mt-2">
+    <div class="col-lg-4" *ngFor="let item of listDeMesDotations">
+        <div class="card card-custom h-100" style="border-top:solid 2px grey !important;">
+            <div class="card-body">
+                <table class="mb-2">
+                    <tr>
+                        <td>Référence : </td>
+                        <th>{{ item.refFiche }}</th>
+                    </tr>
+                    <tr>
+                        <td>Désignation : </td>
+                        <th>{{ item.designationMateriel }}</th>
+                    </tr>
+                    <tr>
+                        <td>Date prévue de retour : </td>
+                        <th>{{ item.datePrevueRetour }}</th>
+                    </tr>
+                </table>
+
+               <div class="d-flex justify-content-between align-items-center">
+                <span class="acceptation" (click)="Affectation(content)" *ngIf="item.newAffectation == true"><i class="fa fa-check-circle"></i> Acceptation</span>
+                <span class="signalisation" (click)="Signalisation(signal)" *ngIf="item.newAffectation == false"><i class="fa fa-warning"></i> Signalisation</span>
+                <span class="details-btn" (click)="details(item.id)">Détails <i class="fa fa-arrow-right ms-1"></i></span>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Acceptation -->
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Avis du destinataire</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<form>
+			<div class="mb-3">
+				<div class="mb-3">
+                    <textarea class="form-control" rows="4" placeholder="Saisir"></textarea>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <button class="button-blue me-2 w-100" type="submit" (click)="Accepter();modal.close('click')">Accepter</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="button-red w-100" type="submit" (click)="Refuser();modal.close('click')">Refuser</button>
+                    </div>
+                </div>
+			</div>
+		</form>
+	</div>
+</ng-template>
+
+<!-- Modal Signalisation -->
+<ng-template #signal let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Signalisation</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<form>
+			<div class="mb-3">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Commentaire"></textarea>
+              </div>
+            <button class="button-blue me-2 mt-3 w-100" type="submit" (click)="modal.close('click')">Signaler</button>
+		</form>
+	</div>
+
+
+</ng-template>
+<div class="d-flex justify-content-between p-2">
+  <div class="d-flex">
+      <span class="me-3">Affichage par</span>
+      <select class="form-select form-select-sm" style="width: auto;height: 30px;" [(ngModel)]="pageSize"
+          (ngModelChange)="refreshMateriels()">
+          <option [ngValue]="6">6</option>
+          <option [ngValue]="9">9</option>
+      </select>
+  </div>
+
+  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+      (pageChange)="refreshMateriels()" style="height: 20px !important;">
+  </ngb-pagination>
+</div>

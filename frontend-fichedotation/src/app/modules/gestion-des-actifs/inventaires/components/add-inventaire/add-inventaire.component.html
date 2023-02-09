@@ -1,0 +1,88 @@
+<nav class="breadcrumb-layout mb-3"
+    style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a routerLink="../../">
+                <i class="fa fa-list me-2"></i>
+                <span>Inventaires</span>
+            </a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page"><i class="fa fa-plus me-2"></i>Nouvel Inventaire</li>
+    </ol>
+</nav>
+
+<div class="shadow-custom p-4 rounded-2">
+    <h5>Détails du matériel</h5>
+    <div class="row details g-3 mt-2">
+        <div class="col-lg-4">
+            <div class="details-item">
+                <p class="details-item-title">Désignation du matériel</p>
+                <p class="details-item-value">{{elements.designationDuMateriel}}</p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="details-item">
+                <p class="details-item-title">Type de matériel</p>
+                <p class="details-item-value">{{elements.type}}</p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="details-item">
+                <p class="details-item-title">Fournisseur</p>
+                <p class="details-item-value">{{elements.fournisseur}}</p>
+            </div>
+        </div>
+
+        <hr>
+        <div class="col-lg-4">
+            <div class="details-item">
+                <p class="details-item-title">Prix d'Achat </p>
+                <p class="details-item-value">{{elements.prixAchat}}</p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="details-item">
+                <p class="details-item-title">Date d’achat</p>
+                <p class="details-item-value">{{elements.dateAchat}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="shadow-custom p-4 rounded-2 mt-4">
+
+    <form>
+        <div class="row g-4 mt-2">
+
+            <div class="col-lg-4">
+                <label class="form-label">Matériel trouvé</label>
+                <select class="form-select">
+                    <option selected>Sélectionner</option>
+                    <option value="1">Oui</option>
+                    <option value="2">Non</option>
+
+                </select>
+            </div>
+            <div class="col-lg-4">
+                <label class="form-label">Statut matériel</label>
+                <select class="form-select">
+                    <option selected>Sélectionner</option>
+                    <option value="1">actif</option>
+                    <option value="2">réformé</option>
+                    <option value="3">alertes</option>
+                </select>
+            </div>
+
+
+
+
+            <div class="col-lg-12">
+                <div class="d-flex align-items-center">
+                    <button class="button-blue me-3" type="submit">Enregistrer</button>
+                    <button class="button-outline-blue" type="reset">Annuler</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

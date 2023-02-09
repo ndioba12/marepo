@@ -1,0 +1,59 @@
+<!-- Message bienvenue -->
+<div class="shadow-custom p-4 rounded-4 panel" #panelToggle>
+    <div class="panel-toggle">
+        <i class="fa fa-close text-danger" (click)="togglePanel()"></i>
+    </div>
+
+    <div class="panel-content row">
+        <div class="panel-content-left col-lg-8">
+            <img src="{{'assets/icons/material-icon.png'}}" alt="">
+            <div>
+                <h4>Bienvenue sur votre Tableau de bord</h4>
+                <p>
+                    Dématérialisation de la fiche de dotation et du suivi du matériel.
+                </p>
+            </div>
+        </div>
+        <div class="panel-content-right col-lg-4">
+            <img src="{{'assets/icons/icon-right.png'}}" alt="">
+        </div>
+    </div>
+</div>
+
+<!-- widgets -->
+
+<div class="row widgets my-3 g-3">
+    <!-- <div class="col-lg-3">
+        <div class="widget-item p-3 rounded-2">
+            <div class="widget-item-text">
+                <h3>09</h3>
+                <p>Signalisation Instantanée</p>
+            </div>
+            <div class="widget-item-icon">
+                <img src="{{'assets/icons/signalisation.svg'}}" alt="">
+            </div>
+        </div>
+    </div> -->
+    <div class="col-lg-3">
+        <div class="widget-item p-3 rounded-2">
+            <div class="widget-item-text">
+                <h3>09</h3>
+                <p>Matériaux Affectés</p>
+            </div>
+            <div class="widget-item-icon">
+                <img src="{{'assets/icons/materiels.svg'}}" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="widget-item p-3 rounded-2">
+            <div class="widget-item-text">
+                <h3>09</h3>
+                <p>Matériaux Signalés</p>
+            </div>
+            <div class="widget-item-icon">
+                <img src="{{'assets/icons/signaler.svg'}}" alt="">
+            </div>
+        </div>
+    </div>
+</div>

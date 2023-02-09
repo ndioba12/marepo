@@ -1,0 +1,109 @@
+<nav class="breadcrumb-layout"
+    style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#">
+                <i class="fa fa-list me-2"></i>
+                <span>Enregistrement Matériel</span>
+            </a>
+        </li>
+        <!-- <li class="breadcrumb-item active" aria-current="page">Library</li> -->
+    </ol>
+</nav>
+
+<!-- TITRE ET FILTRE -->
+<div class="table-title row mt-3">
+    <div class="col-lg-4">
+        <h5>Liste des matériels</h5>
+    </div>
+
+    <div class="col-lg-12">
+        <!--<div class="col-lg-12">-->
+        <div class="table-actions">
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example"  (change)="seletedEtat($event)" >
+                <option selected>Filtrer par etat</option>
+                <option *ngFor="let etat of etats" [value]="etat.id">{{ etat.libelle }}</option>
+            </select>
+
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" (change)="seletedTypeImmobilisation($event)">
+                <option selected>Type de matériel</option>
+                <option *ngFor="let typeM of typeMateriels" [value]="typeM.id">{{ typeM.libelle }}</option>
+            </select>
+            <input class="form-control form-control-sm" placeholder="Date Debut" onfocus="(this.type='date')" onblur="(this.type='text')" (input)="selectedDate($event)">
+            <input class="form-control form-control-sm" placeholder="Date Fin" onfocus="(this.type='date')" onblur="(this.type='text')" (input)="selectedDate($event)">
+            <button class="btn btn-sm btn-outline-danger btn-export"> <i class="fa fa-file-pdf"></i> Exporter PDF</button>
+            <button class="btn btn-sm btn-outline-success btn-export"> <i class=" fa fa-file-excel"></i> Exporter Excel</button>
+            <button class="btn btn-sm btn-outline-primary" (click)="addMateriel()"> <i class=" fa fa-add"></i>
+                Matériel</button>
+        </div>
+    </div>
+</div>
+<!-- TABLEAU -->
+<div class="table-responsive">
+    <table class="table shadow-sm mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Désignation</th>
+                <!-- <th scope="col">Type de matériel</th>-->
+                <th scope="col">Fournisseur</th>
+                <th scope="col">Prix d'achat</th>
+                <th scope="col">Date d'achat</th>
+                <th scope="col">Type de matériel</th>
+                <th scope="col">Statut</th>
+               <!-- <th scope="col">Etat</th>-->
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let materiel of materiels">
+             <!--   <td>Otto</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+               <td>
+                    <p class="etats">
+                        <span [appStatus]="affectation.etat" class="etat-materiel"></span>
+                    </p>
+                </td>-->
+
+                <td>{{ materiel. designation}}</td>
+                <td>{{ materiel.fournisseur }}</td>
+                <td>{{ materiel.prixAcquisition }}</td>
+                <td>{{ materiel.dateAcquisition }}</td>
+                <td>{{ materiel.typeImmobilisation?.libelle }}</td>
+                <td>{{ materiel.etat?.libelle }}</td>
+
+                <td [width]="'10%'">
+                    <a [routerLink]="[materiel.id,'detail-enregistrement-materiel']" title="Visualiser">
+                        <span class="fa fa-eye text-black-50"></span>
+                    </a>
+                    <a [routerLink]="[materiel.id,'modifier-enregistrement-materiel']" title="Modifier">
+                        <span class="fa fa-edit tx-blue mx-3"></span>
+                    </a>
+                    <a [routerLink]="[materiel.id]" title="Modifier">
+                    <span (click)="deleteItem(materiel?.id)" class="fa fa-trash text-danger trash-button"></span></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div class="d-flex justify-content-between p-2">
+
+        <div class="d-flex">
+            <span class="me-3">Affichage par</span>
+            <select class="form-select form-select-sm" style="width: auto;height: 30px;" [(ngModel)]="pageSize"
+                (ngModelChange)="getMateriels()">
+                <option [ngValue]="5">5</option>
+                <option [ngValue]="10">10</option>
+                <option [ngValue]="20">20</option>
+            </select>
+        </div>
+
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+            (pageChange)="getMateriels()" style="height: 20px !important;">
+        </ngb-pagination>
+    </div>
+</div>

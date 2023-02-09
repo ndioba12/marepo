@@ -1,0 +1,71 @@
+<div class="table-title row mt-3">
+    <div class="col-lg-6">
+        <h5>Liste des matériels recupérés</h5>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="table-actions">
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option value="" disabled selected>Etat</option>
+                <option *ngFor="let item of etat" [value]="item.value">{{ item.value | titlecase }}</option>
+            </select>
+            <button class="btn btn-sm btn-outline-secondary"> <i class="fa fa-file-pdf"></i> Exporter_PDF</button>
+            <button class="btn btn-sm btn-success"> <i class=" fa fa-file-excel"></i> Exporter_Excel</button>
+        </div>
+    </div>
+</div>
+<!-- TABLEAU -->
+<div class="table-responsive">
+    <table class="table shadow-sm mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Référence fiche</th>
+                <th scope="col">Désignation</th>
+                <th scope="col">Destinataire</th>
+                <th scope="col">Date prévue retour</th>
+                <th scope="col">Etat</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of materiels">
+                <td>Mark</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>
+                    <p class="etat">
+                        <span class="etat-actif"></span>
+                        <span class="etat-text">Actif</span>
+                    </p>
+                </td>
+                <td [width]="'10%'">
+                    <a [routerLink]="[item.id,'nouvelle-recuperation']" title="Récuperer un matériel">
+                        <span class="fa fa-file-circle-plus text-black-50 me-2"></span>
+                    </a>
+                    <a [routerLink]="[item.id,'modifier-recuperation']" title="Modifier le matériel">
+                        <span class="fa fa-edit tx-blue mx-2"></span>
+                    </a>
+                    <span (click)="deleteItem()" class="fa fa-trash text-danger"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div class="d-flex justify-content-between p-2">
+        <div class="d-flex">
+            <span class="me-3">Affichage par</span>
+            <select class="form-select form-select-sm" style="width: auto;height: 30px;" [(ngModel)]="pageSize"
+                (ngModelChange)="refreshMateriels()">
+                <option [ngValue]="5">5</option>
+                <option [ngValue]="10">10</option>
+                <option [ngValue]="20">20</option>
+            </select>
+        </div>
+
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+            (pageChange)="refreshMateriels()" style="height: 20px !important;">
+        </ngb-pagination>
+    </div>
+</div>
