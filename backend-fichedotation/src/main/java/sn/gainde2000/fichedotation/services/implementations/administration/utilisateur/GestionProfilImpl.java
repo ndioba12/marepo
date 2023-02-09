@@ -23,7 +23,6 @@ public class GestionProfilImpl implements IGestionProfil {
     private final UtilisateurRepository utilisateurRepository;
     private final PasswordEncoder encoder;
 
-
     @Override
     public Response<Object> getConnectedUser() {
         AuthenticatedUserInfosDTO infosDTO = AuthUtils.getAuthenticatedUser().orElseThrow(() -> new GenericApiException("L'utilisateur ne s'est pas authentifié"));

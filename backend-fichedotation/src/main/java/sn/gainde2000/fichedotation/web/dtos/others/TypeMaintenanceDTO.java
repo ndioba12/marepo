@@ -24,4 +24,8 @@ public class TypeMaintenanceDTO implements Serializable {
     private String code;
     private String libelle;
 
+    public TypeMaintenanceDTO(Integer id){
+        this.id = id;
+    }
+
 }

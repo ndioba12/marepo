@@ -27,8 +27,8 @@ public class GestionMaterielsController {
     }*/
 
     //Liste des immobilisations
-    @Operation(summary = "Endpoint pour lister les utilisateurs. ['ADM', 'SUP','SAD']")
-    @PreAuthorize("hasAnyAuthority('ACH')")
+    @Operation(summary = "Endpoint pour lister les matériels. ['ADM', 'ACH','CPT']")
+    @PreAuthorize("hasAnyAuthority('SAD','ACH', 'CPT')")
     @GetMapping("/listImmobilisations")
     public Response<Object> listImmobilisations(
             @RequestParam(value = "page", defaultValue = "0") int page,
@@ -38,10 +38,6 @@ public class GestionMaterielsController {
         return iGestionMateriels.listImmobilisations(page, size, filter);
     }
 
-
-
-
-
     @Operation(summary = "Endpoint pour ajouter une nouvelle immobilisation [ACH]")
     @PreAuthorize("hasAnyAuthority('ACH')")
     @PostMapping("/addImmobilisation")
@@ -49,22 +45,22 @@ public class GestionMaterielsController {
         return iGestionMateriels.addImmobilisation(model);
     }
 
-    @Operation(summary = "Endpoint pour modifier les informations d'un utilisateur. ['ADM', 'SAD']")
-   @PreAuthorize("hasAnyAuthority('ACH')")
+    @Operation(summary = "Endpoint pour modifier les informations d'un matériel. ['ADM','SAD','ACH','CPT']")
+   @PreAuthorize("hasAnyAuthority('ACH', 'CPT')")
     @PutMapping("/editImmobilisation/{id}")
     public Response<Object> updateImmobilisation(@PathVariable @NotNull Integer id, @RequestBody @Valid ModifMaterielDTO dto) {
         return iGestionMateriels.updateImmobilisation(id, dto);
     }
 
-    @Operation(summary = "Endpoint pour supprimer un utilisateur. ['ADM']")
+    @Operation(summary = "Endpoint pour supprimer un matériel. ['ADM', 'ACH']")
     @PreAuthorize("hasAnyAuthority('ACH')")
     @DeleteMapping("/deleteImmobilisation/{id}")
     public Response<Object> deleteImmobilisation(@PathVariable @NotNull Integer id) {
         return iGestionMateriels.deleteImmobilisation(id);
     }
 
-    @Operation(summary = "Endpoint pour lister les utilisateurs. ['ADM', 'SUP','SAD']")
-    @PreAuthorize("hasAnyAuthority('ACH')")
+    @Operation(summary = "Endpoint pour lister les matériels. ['ADM','ACH','SAD','CPT']")
+    @PreAuthorize("hasAnyAuthority('ACH', 'CPT')")
     @GetMapping("/listImmobilisations/{id}")
     public Response<Object> getImmobilisation(@PathVariable Integer id) {
         return iGestionMateriels.getImmobilisation(id);

@@ -101,8 +101,8 @@ public class GestionMaterielsImpl implements IGestionMateriels {
             if (optionalImmobilisation.isPresent())
                 return Response.exception().setMessage("Cette designation est saisi est dèjà utilisé !");
             Immobilisation immobilisation = othersMapper.mapToImmobilisation(model);
-            immobilisation.setStatut(statutRepository.findByCode("002").get());
-            immobilisation.setEtat(etatRepository.findByCode("ET1").get());
+            immobilisation.setStatut(statutRepository.findById(0).get());
+            immobilisation.setEtat(etatRepository.findById(0).get());
             immobilisationRepository.save(immobilisation);
             return Response.ok().setMessage("Materiel ajouté!");
     }
@@ -147,11 +147,6 @@ public class GestionMaterielsImpl implements IGestionMateriels {
             TypeImmobilisationDTO typeImmobilisationDTO = dto.getTypeImmobilisation();
             TypeImmobilisation typeImmobilisation = othersMapper.mapToTypeImmobilisation(typeImmobilisationDTO);
             immobilisation.setTypeImmobilisation(typeImmobilisation);
-        }
-        if (dto.getCatImmobilisation() != null) {
-            CatImmobilisationDTO catImmobilisationDTO = dto.getCatImmobilisation();
-            CatImmobilisation catImmobilisation = othersMapper.mapToCatImmobilisation(catImmobilisationDTO);
-            immobilisation.setCatImmobilisation(catImmobilisation);
         }
         immobilisationRepository.save(immobilisation);
         return Response.ok().setMessage("Immobilisation modifié avec succès !");

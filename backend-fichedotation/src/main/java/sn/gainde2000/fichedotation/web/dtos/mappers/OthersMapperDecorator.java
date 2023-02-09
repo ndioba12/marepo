@@ -3,7 +3,7 @@ package sn.gainde2000.fichedotation.web.dtos.mappers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import sn.gainde2000.fichedotation.entities.*;
-import sn.gainde2000.fichedotation.web.dtos.others.*;
+//import sn.gainde2000.fichedotation.web.dtos.others.*;
 
 /**
  * @author : alndiaye (Amadou Lamine NDIAYE)
@@ -11,7 +11,7 @@ import sn.gainde2000.fichedotation.web.dtos.others.*;
 
 @Slf4j
 public abstract class OthersMapperDecorator implements OthersMapper {
-    private OthersMapper othersMapper;
+    private OtherM othersMapper;
 
     @Autowired
     public void setDonneesReferenceMapper(OthersMapper othersMapper) {
@@ -60,6 +60,49 @@ public abstract class OthersMapperDecorator implements OthersMapper {
     public Etat mapToEtat(EtatDTO etatDTO) {
         return  othersMapper.mapToEtat(etatDTO);
     }
+
+    @Override
+    public FicheDotation mapToFicheDotation(AffectationFormDTO affectationFormDTO){
+        return othersMapper.mapToFicheDotation(affectationFormDTO);
+    }
+
+    @Override
+    public AffectationFormDTO mapToFicheDotationDTO(FicheDotation ficheDotation){
+        return othersMapper.mapToFicheDotationDTO(ficheDotation);
+    }
+
+    @Override
+    public ReferenceImmoDTO mapToReferenceImmoDTO(Immobilisation immobilisation){
+        return othersMapper.mapToReferenceImmoDTO(immobilisation);
+    }
+
+    @Override
+    public Immobilisation mapToReferenceImmo(ReferenceImmoDTO referenceImmoDTO){
+        return othersMapper.mapToReferenceImmo(referenceImmoDTO);
+    }
+
+
+
+    @Override
+    public TypeMaintenanceDTO mapToTypeMaintenanceDTO(TypeMaintenance typeMaintenance){
+        return othersMapper.mapToTypeMaintenanceDTO(typeMaintenance);
+    }
+
+    @Override
+    public TypeMaintenance mapToTypeMaintenance(TypeMaintenanceDTO typeMaintenanceDTO){
+        return othersMapper.mapToTypeMaintenance(typeMaintenanceDTO);
+    }
+
+    @Override
+    public EtatDTO mapToEtatDTO(Etat etat) {
+        return othersMapper.mapToEtatDTO(etat);
+    }
+    @Override
+    public Etat mapToEtat(EtatDTO etatDTO) {
+        return  othersMapper.mapToEtat(etatDTO);
+    }
+
+
 
 }
 

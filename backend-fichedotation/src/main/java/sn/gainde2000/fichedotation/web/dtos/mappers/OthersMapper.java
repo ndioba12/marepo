@@ -5,6 +5,8 @@ import org.mapstruct.Mapper;
 import sn.gainde2000.fichedotation.entities.*;
 import sn.gainde2000.fichedotation.web.dtos.others.*;
 
+import java.lang.reflect.Type;
+
 /**
  * @author : ndiane (Ndioba Diane)
  */
@@ -23,12 +25,31 @@ public interface OthersMapper {
         AjoutMaterielDTO mapToImmobilisationDTO(Immobilisation immobilisation);
 
         Immobilisation mapToImmobilisation(AjoutMaterielDTO immobilisationDTO);
-       CatImmobilisationDTO mapToCatImmobilisationDTO(CatImmobilisation catImmobilisation);
+        CatImmobilisationDTO mapToCatImmobilisationDTO(CatImmobilisation catImmobilisation);
 
         CatImmobilisation mapToCatImmobilisation(CatImmobilisationDTO catImmobilisationDTO);
 
-       EtatDTO mapToEtatDTO(Etat etat);
 
-    Etat mapToEtat( EtatDTO etatDTO);
+        StatutDTO mapToStatutDTO(Statut statut);
+
+        Statut mapToStatut( StatutDTO  statutDTO);
+
+        EtatDTO mapToEtatDTO(Etat etat);
+
+        Etat mapToEtat( EtatDTO etatDTO);
+
+        FicheDotation mapToFicheDotation(AffectationFormDTO affectationFormDTO);
+
+        AffectationFormDTO mapToFicheDotationDTO(FicheDotation ficheDotation);
+
+        ReferenceImmoDTO mapToReferenceImmoDTO(Immobilisation immobilisation);
+
+        Immobilisation mapToReferenceImmo(ReferenceImmoDTO referenceImmoDTO);
+
+        TypeMaintenanceDTO mapToTypeMaintenanceDTO(TypeMaintenance typeMaintenance);
+
+        TypeMaintenance mapToTypeMaintenance(TypeMaintenanceDTO typeMaintenanceDTO);
+
+
+
 }
-

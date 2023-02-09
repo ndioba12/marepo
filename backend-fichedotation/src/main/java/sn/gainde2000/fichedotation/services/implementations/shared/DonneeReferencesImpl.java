@@ -10,8 +10,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import sn.gainde2000.fichedotation.entities.Entite;
-import sn.gainde2000.fichedotation.repositories.*;
 
+import sn.gainde2000.fichedotation.entities.Utilisateur;
+import sn.gainde2000.fichedotation.repositories.*;
 import sn.gainde2000.fichedotation.entities.TypeCession;
 
 import sn.gainde2000.fichedotation.services.interfaces.shared.IDonneeReferences;
@@ -30,14 +31,22 @@ public class DonneeReferencesImpl implements IDonneeReferences {
     private final ProfilRepository profilRepository;
 
     private final StatutRepository statutRepository;
+
     private final TypeCessionRepository typeCessionRepository;
 
     private final OthersMapper othersMapper;
 
     private final EntiteRepository entiteRepository;
+
     private final TypeImmobilisationRepository typeImmobilisationRepository;
     private final CatImmobilisationRepository catImmobilisationRepository;
     //private final UtilisateurMapper utilisateurMapper;
+
+
+    private final EtatRepository etatRepository;
+
+    private final TypeMaintenanceRepository typeMaintenanceRepository;
+
 
     @Override
     public Response<Object> listProfil() {
@@ -76,6 +85,15 @@ public class DonneeReferencesImpl implements IDonneeReferences {
     @Override
     public Response<Object> listStatut() {
         return Response.ok().setPayload(statutRepository.findAll()).setMessage("Liste des types statuts !");
+    }
+
+    @Override
+    public Response<Object> listEtat() {
+        return Response.ok().setPayload(etatRepository.findAll()).setMessage("Liste des types etats !");
+    }
+
+    public Response<Object> listeTypeMaintenances(){
+        return Response.ok().setPayload(typeMaintenanceRepository.findAll()).setMessage("Liste des types de maintenances !");
     }
 
     @Transactional

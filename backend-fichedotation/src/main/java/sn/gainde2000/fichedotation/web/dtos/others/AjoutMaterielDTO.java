@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import lombok.experimental.Accessors;
+import sn.gainde2000.fichedotation.entities.Etat;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -19,10 +20,10 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Builder
-@JsonIgnoreProperties(ignoreUnknown = true)
 //exclure les propriétés ayant des valeurs nulles / vides ou par défaut.
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
+@Builder
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AjoutMaterielDTO implements Serializable {
     private static final long serialVersionUID = -1655762844468520301L;
 
@@ -41,10 +42,13 @@ public class AjoutMaterielDTO implements Serializable {
     @NotBlank(message = "Le fournisseur ne doit pas être vide!")
     @Size(min = 2, max = 255, message = "Le champ fournisseur doit être comprise entre 2 et 100!")
     private String fournisseur;
+
     @Size(min = 2, max = 255, message = "Le champ accessoires   doit être comprise entre 2 et 100!")
     private String accessoires;
+
+
     @NotNull(message = "La date d'acquisition ne doit pas être vide!")
-   // @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date dateAcquisition;
 
     @NotNull(message = "Le modele ne doit pas être vide!")
@@ -55,6 +59,12 @@ public class AjoutMaterielDTO implements Serializable {
     private TypeImmobilisationDTO typeImmobilisation;
     @NotNull(message = "La categorie d'immobilisation ne doit pas être vide!")
     private CatImmobilisationDTO catImmobilisation;
-    //private EtatDTO etat;
+
+    private StatutDTO statut;
+    private Etat etat;
+
+    public AjoutMaterielDTO(Integer id) {
+        this.id = id;
+    }
 
 }

@@ -1,25 +1,30 @@
 package sn.gainde2000.fichedotation.entities;
 
 import lombok.*;
-import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.Where;
+import sn.gainde2000.fichedotation.entities.audit.Auditable;
 
+import javax.annotation.Nullable;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+
+//import java.util.*;
+
 
 @Builder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Entity
 @Table(name = "TD_Immobilisation")
-public class Immobilisation implements Serializable {
+public class Immobilisation extends Auditable<Integer> implements Serializable {
     private static final long serialVersionUID = 3606820922208657243L;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -59,6 +64,13 @@ public class Immobilisation implements Serializable {
     @Size(max = 100)
     @Column(name = "Imm_referenceInterne")
     private String referenceInterne;
+
+    @Nullable
+    @Column(name = "Imm_localisationGeo")
+    private String localisationGeo;
+
+    @Column(name = "Imm_estAffecte", columnDefinition = "boolean default false")
+    private Boolean estAffecte = false;
 
     @Size(max = 100)
     @Column(name = "Imm_adresseMac")
@@ -103,6 +115,11 @@ public class Immobilisation implements Serializable {
             joinColumns = @JoinColumn(name = "Imm_id"),
             inverseJoinColumns = @JoinColumn(name = "Uti_id"))
     private Set<Utilisateur> users = new HashSet<>();
+
+    @OneToMany(mappedBy = "immobilisation")
+    private Set<Effectuer> effectuer= new HashSet<Effectuer>();
+
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

@@ -20,6 +20,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@ToString
 @Builder
 @Getter
 @Setter
@@ -84,6 +85,9 @@ public class Utilisateur extends Auditable<Integer> implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Uti_Ent_id")
     private Entite linkedEntite;
+
+    @OneToMany(mappedBy = "utilisateur")
+    private Set<Effectuer> effectuer= new HashSet<Effectuer>();
 
     @Override
     public boolean equals(Object o) {

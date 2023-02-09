@@ -1,6 +1,3 @@
-package sn.gainde2000.fichedotation.web.dtos.others;
-
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,10 +15,10 @@ import java.io.Serializable;
 //exclure les propriétés ayant des valeurs nulles / vides ou par défaut.
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class EtatDTO implements Serializable {
-    private static final long serialVersionUID = -1655762844468520302L;
 
+    private static final long serialVersionUID = -6576330971524913445L;
     private Integer id;
     private String code;
     private String libelle;
-    
+
 }

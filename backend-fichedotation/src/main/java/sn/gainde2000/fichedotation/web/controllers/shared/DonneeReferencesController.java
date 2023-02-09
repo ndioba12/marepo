@@ -31,7 +31,6 @@ public class DonneeReferencesController {
         return iDonneeReferences.listProfil();
     }
 
-
     @Operation(summary = "Endpoint pour récupérer la liste des entités ou départements de Gainde2000")
     @GetMapping("/entites")
     public Response<Object> listEntite() {
@@ -42,9 +41,7 @@ public class DonneeReferencesController {
     @PostMapping("/saveEntite")
     public Response<Object> saveEntite(@RequestBody  EntiteDTO dto) {
         return iDonneeReferences.saveEntite(dto);
-
     }
-
 
     @Operation(summary = "Endpoint pour récupérer la liste des types cessions")
     @GetMapping("/typeCessions")
@@ -62,8 +59,8 @@ public class DonneeReferencesController {
     @GetMapping("/statuts")
     public Response<Object> listStatut() {
         return iDonneeReferences.listStatut();
-
     }
+
 
     @Operation(summary = "Endpoint pour récupérer la liste des type de materiels")
     @GetMapping("/listTypeMateriels")
@@ -78,4 +75,17 @@ public class DonneeReferencesController {
         return iDonneeReferences.listCatMateriels();
 
     }
+
+    @Operation(summary = "Endpoint pour récupérer la liste des etats")
+    @GetMapping("/etats")
+    public Response<Object> listEtat() {
+        return iDonneeReferences.listEtat();
+    }
+
+    @Operation(summary = "Endpoint pour récupérer la liste des types de maintenances")
+    @GetMapping("/typeMaintenances")
+    public Response<Object> listeTypeMaintenances() {
+        return iDonneeReferences.listeTypeMaintenances();
+    }
+
 }

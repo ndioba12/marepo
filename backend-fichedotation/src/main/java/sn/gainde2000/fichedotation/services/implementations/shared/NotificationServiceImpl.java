@@ -66,7 +66,6 @@ public class NotificationServiceImpl implements INotificationService {
                 .destinataire(loginFormDTO.getLogin())
                 .build();
         sendMessage(mailInfosDTO);
-
     }
 
     @Override

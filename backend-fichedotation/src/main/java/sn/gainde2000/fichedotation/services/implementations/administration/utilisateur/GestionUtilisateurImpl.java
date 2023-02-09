@@ -59,12 +59,15 @@ public class GestionUtilisateurImpl implements IUtilisateur {
         return Response.ok().setMessage("Merci de vérifier votre email, un lien de connexion vous sera envoyé!");
     }
 
+    /**
+     * @author : jkdiouf (Jules Ko DIOUF)
+     * @comment: Ajout de la liste des utilisateurs provenant du fichier excel
+     */
     @Override
     @Transactional
     public Response<Object> saveUtilisateursFromExcel(List<UtilisateurDTO> usersList){
 
         //L'idée est d'ignorer tous les utilisateurs déjà enregistré dans la base de données.
-
 
         List<Utilisateur> users = utilisateurRepository.findAll();
 
@@ -75,7 +78,6 @@ public class GestionUtilisateurImpl implements IUtilisateur {
                 newUser.setFirstLog(true);
                 newUser.setStatus(true);
                 Utilisateur savedUser = utilisateurRepository.save(newUser);
-
 
                 //notificationService.createNewUserNotification(LoginFormDTO.builder().login(savedUser.getEmail()).password(savedUser.getPassword()).build(),"FIRST_CONNEXION", false);
             }
@@ -111,6 +113,10 @@ public class GestionUtilisateurImpl implements IUtilisateur {
         return Response.ok().setMessage("Les utilisateurs ont été chargés. Chaque utilisateur a reçu un lien de connexion à la plateforme par mail !");
     }
 
+    /**
+     * @author : jkdiouf (Jules Ko DIOUF)
+     * @comment: Modification apporté au niveau du payload de la reponse. Aulieu de retourner une liste d'utilisateurs, on retourne une liste d'utilisateurDTOs
+     */
     @Override
     public Response<Object> listUtilisateur(int page, int size, String filter) {
         BooleanBuilder builder = new BooleanBuilder();
@@ -165,7 +171,7 @@ public class GestionUtilisateurImpl implements IUtilisateur {
     public Response<Object> getUtilisateur(Integer id) {
         Utilisateur utilisateur = utilisateurRepository.findById(id).orElseThrow(() -> new GenericApiException("Utilisateur absent!"));
 
-        return Response.ok().setPayload(utilisateur).setMessage("Utilisateur retrouvé avec succès!");
+        return Response.ok().setPayload(utilisateurMapper.map(utilisateur)).setMessage("Utilisateur retrouvé avec succès!");
     }
 
     @Transactional
@@ -182,9 +188,13 @@ public class GestionUtilisateurImpl implements IUtilisateur {
         currentUser.setNom(inComingUser.getNom());
         currentUser.setPrenom(inComingUser.getPrenom());
         currentUser.setEmail(inComingUser.getEmail());
+        currentUser.setPassword(encoder.encode(PasswordGenerator.GenerateRandomString()));
+        currentUser.setFirstLog(true);
         currentUser.setLinkedEntite(inComingUser.getLinkedEntite());
         currentUser.setLinkedProfil(inComingUser.getLinkedProfil());
 
+        //notificationService.createNewUserNotification(LoginFormDTO.builder().login(currentUser.getEmail()).password(currentUser.getPassword()).build(),"RESET_PASSWORD", true);
+        notificationService.editUserNotification(LoginFormDTO.builder().login(currentUser.getEmail()).password(currentUser.getPassword()).build(), "FIRST_CONNEXION");
         utilisateurRepository.save(currentUser);
 
         return Response.ok().setMessage("Utilisateur modifié avec succès !");
@@ -196,7 +206,7 @@ public class GestionUtilisateurImpl implements IUtilisateur {
         Utilisateur utilisateur = utilisateurRepository.findById(id).orElseThrow(() -> new GenericApiException("Aucun utilisateur avec cet id"));
         utilisateur.setStatus(!utilisateur.getStatus());
         Utilisateur updatedUtilisateur = utilisateurRepository.save(utilisateur);
-        notificationService.activationOrDeactivationOfAUser(updatedUtilisateur.getEmail(), updatedUtilisateur.getStatus());
+        //notificationService.activationOrDeactivationOfAUser(updatedUtilisateur.getEmail(), updatedUtilisateur.getStatus());
         String message = Boolean.TRUE.equals(updatedUtilisateur.getStatus()) ? "Compte activé avec succès !" : "Compte désactivé avec succès !";
         return Response.ok().setPayload(id).setMessage(message);
     }

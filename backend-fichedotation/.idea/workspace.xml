@@ -5,30 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e29c2a12-7510-4ef9-8d08-2619b403615a" name="Changes" comment="Initial">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/repositories/CatImmobilisationRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/repositories/EtatRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Effectuer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/FicheDotation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/repositories/FicheDotationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/repositories/TypeMaintenanceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/gestionMateriels/ReferenceImmoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/interfaces/GestionMareriels/IReferenceImmo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/controllers/gestionsMateriels/referenceImmobilisation/ReferenceImmoControlleur.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/AffectationFormDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/FicheDotationDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/ImmobilisationDTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/ModificationAchatDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Fournisseur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/HistoriqueLocalisation.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/RecupererImmoFormDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/ReferenceImmoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/ReferencementImmoFormDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/StatutDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-fichedotation.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/commons/configurations/SwaggerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/commons/configurations/SwaggerConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Immobilisation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Immobilisation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Marque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Etat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Statut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Statut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/TypeImmobilisation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/TypeImmobilisation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/repositories/LocalisationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/repositories/MarqueRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/repositories/TypeCessionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/repositories/TypeCessionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/achats/GestionAchatImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/achats/GestionAchatImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Utilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/entities/Utilisateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/repositories/CatImmobilisationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/repositories/CatImmobilisationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/administration/utilisateur/GestionProfilImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/administration/utilisateur/GestionProfilImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/administration/utilisateur/GestionUtilisateurImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/administration/utilisateur/GestionUtilisateurImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/gestionMateriels/GestionMaterielsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/gestionMateriels/GestionMaterielsImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/shared/DonneeReferencesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/shared/DonneeReferencesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/interfaces/achats/IGestionAchat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/interfaces/achats/IGestionAchat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/shared/NotificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/shared/NotificationServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/interfaces/shared/IDonneeReferences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/interfaces/shared/IDonneeReferences.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/controllers/achats/AchatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/controllers/achats/AchatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/controllers/gestionsMateriels/GestionMaterielsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/controllers/gestionsMateriels/GestionMaterielsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/controllers/shared/DonneeReferencesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/controllers/shared/DonneeReferencesController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/mappers/OthersMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/mappers/OthersMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/mappers/OthersMapperDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/mappers/OthersMapperDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/AjoutAchatDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/AjoutAchatDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/FournisseurDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/HistoriqueLocalisationDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/MarqueDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/CatImmobilisationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/messages/requests/UtilisateurDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/messages/requests/UtilisateurDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/AjoutMaterielDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/AjoutMaterielDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/EtatDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/EtatDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/TypeMaintenanceDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/dtos/others/TypeMaintenanceDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +90,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/projects/backend-fichedotation&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/backend-fichedotation/src/main/java/sn/gainde2000/fichedotation/web/dtos/others&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -89,10 +100,16 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;com.haulmont.jpb.viewMode&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;e45af62c65454ae4c2a4ef33b309175e&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\backend-fichedotation\src\main\java\sn\gainde2000\fichedotation\web\dtos\others" />
       <recent name="C:\projects\DematDotationBackend\backend-fichedotation\src\main\java\sn\gainde2000\fichedotation\entities" />
       <recent name="C:\projects\DematDotationBackend\backend-fichedotation" />
     </key>
@@ -162,6 +179,18 @@
       <workItem from="1674554865213" duration="19328000" />
       <workItem from="1674639501738" duration="3722000" />
       <workItem from="1674737613615" duration="14064000" />
+      <workItem from="1674814242370" duration="2060000" />
+      <workItem from="1674816498619" duration="1647000" />
+      <workItem from="1674818183867" duration="10305000" />
+      <workItem from="1675073032461" duration="1939000" />
+      <workItem from="1675179183179" duration="1465000" />
+      <workItem from="1675243886552" duration="14675000" />
+      <workItem from="1675328517756" duration="10689000" />
+      <workItem from="1675418506298" duration="7888000" />
+      <workItem from="1675680523343" duration="8323000" />
+      <workItem from="1675762838890" duration="6921000" />
+      <workItem from="1675787572288" duration="2241000" />
+      <workItem from="1675790300049" duration="1035000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1673364893791</created>
@@ -176,12 +205,35 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="ndioba" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -201,7 +253,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/administration/authentification/AuthentificationImpl.java</url>
-          <line>84</line>
+          <line>83</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -215,33 +267,38 @@
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/controllers/achats/AchatController.java</url>
-          <line>33</line>
+          <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/controllers/gestionsMateriels/GestionMaterielsController.java</url>
+          <line>44</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/achats/GestionAchatImpl.java</url>
-          <line>59</line>
+          <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/gestionMateriels/GestionMaterielsImpl.java</url>
+          <line>98</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/achats/GestionAchatImpl.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/controllers/achats/AchatController.java</url>
-          <line>40</line>
+          <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/controllers/gestionsMateriels/GestionMaterielsController.java</url>
+          <line>51</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/achats/GestionAchatImpl.java</url>
-          <line>77</line>
+          <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/gestionMateriels/GestionMaterielsImpl.java</url>
+          <line>116</line>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/exceptions/GlobalExceptionHandler.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/web/controllers/administration/utilisateurs/GestionUtilisateurController.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/administration/authentification/AuthentificationImpl.java</url>
-          <line>193</line>
+          <line>192</line>
           <properties class="sn.gainde2000.fichedotation.services.implementations.administration.authentification.AuthentificationImpl" method="initPassword">
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -249,16 +306,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/administration/utilisateur/GestionProfilImpl.java</url>
-          <line>49</line>
-          <properties class="sn.gainde2000.fichedotation.services.implementations.administration.utilisateur.GestionProfilImpl" method="updatePassword">
+          <line>48</line>
+          <properties class="sn.gainde2000.fichedotation.services.implementations.administration.utilisateur.GestionProfilImpl">
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/achats/GestionAchatImpl.java</url>
-          <line>72</line>
-          <properties class="sn.gainde2000.fichedotation.services.implementations.achats.GestionAchatImpl" method="updateImmobilisation">
+          <url>file://$PROJECT_DIR$/src/main/java/sn/gainde2000/fichedotation/services/implementations/gestionMateriels/GestionMaterielsImpl.java</url>
+          <line>111</line>
+          <properties class="sn.gainde2000.fichedotation.services.implementations.gestionMateriels.GestionMaterielsImpl" method="updateImmobilisation">
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="21" />

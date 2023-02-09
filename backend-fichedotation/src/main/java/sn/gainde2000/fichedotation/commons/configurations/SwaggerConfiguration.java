@@ -36,6 +36,6 @@ class SwaggerConfiguration {
                                                 .scheme("Bearer")
                                                 .bearerFormat("JWT"))
                 )
-                .info(new Info().title("Fiche de dotatio application API").version("v1.0.0"));
+                .info(new Info().title("Fiche de dotation application API").version("v1.0.0"));
     }
 }

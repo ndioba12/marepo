@@ -31,6 +31,7 @@ import javax.validation.constraints.Size;
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UtilisateurDTO {
+
     private Integer id;
 
     @NotBlank(message = "La matricule ne doit pas être vide!")
@@ -59,5 +60,9 @@ public class UtilisateurDTO {
 
     @NotNull(message = "L'entité ne doit pas être null!")
     private EntiteDTO linkedEntite;
+
+    public UtilisateurDTO(Integer id){
+        this.id = id;
+    }
 
 }
